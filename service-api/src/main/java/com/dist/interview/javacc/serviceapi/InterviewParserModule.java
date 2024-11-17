@@ -1,6 +1,7 @@
 package com.dist.interview.javacc.serviceapi;
 
 import com.dist.interview.javacc.infra.model.Candidate;
+import com.dist.interview.javacc.infra.model.Criteria;
 import com.dist.interview.javacc.infra.model.Interview;
 import net.thevpc.nuts.util.NOptional;
 
@@ -11,8 +12,13 @@ public interface InterviewParserModule {
     NOptional<String> addCandidate(Candidate candidate);
     NOptional<List<Candidate>> findAllCandidates();
     NOptional<String> deleteCandidate(String candidate);
-//    ----------------candidate-crud----------------------------------
+//    ----------------interview-crud----------------------------------
     NOptional<String> addInterview(Interview interview);
     NOptional<List<Interview>> findAllInterviews();
     NOptional<String> deleteInterview(String interview);
+//    ----------------criteria-crud----------------------------------
+    NOptional<String> addCriteria(Criteria criteria);
+    NOptional<List<Criteria>> findAllCriterias();
+    NOptional<String> deleteCriteria(String interview);
+
 }
