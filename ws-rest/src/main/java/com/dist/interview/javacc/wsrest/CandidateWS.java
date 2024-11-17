@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/parser")
-public class InterviewParserWS {
+@RequestMapping("/candidate")
+public class CandidateWS {
     @Autowired
     private InterviewParserModule parserModule;
     @PostMapping("/add-candidate")

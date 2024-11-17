@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class InterviewParserService {
+public class CandidateService {
     @Autowired
     private CandidateRepository candidateRepository;
     public NOptional<String> addCandidate(Candidate candidate) {

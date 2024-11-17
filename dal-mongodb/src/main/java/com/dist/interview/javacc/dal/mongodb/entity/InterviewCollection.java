@@ -1,12 +1,18 @@
-package com.dist.interview.javacc.infra.model;
+package com.dist.interview.javacc.dal.mongodb.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-@Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class Interview {
+@Data
+@Document(collection = "interview")
+public class InterviewCollection {
+    @Id
     private String id;
     private String candidateId;
     private String criteriaId;
