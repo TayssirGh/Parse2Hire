@@ -12,7 +12,7 @@ public class Criteria {
     private Integer maximumResponseTime;
     private List<String> requiredSkills;
     private String criteriaDescription;
-    private String syntaxTemplate;
+//    private String syntaxTemplate;
     private List<String> candidateIds;
     private Date createdAt;
 }
