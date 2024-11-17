@@ -51,7 +51,8 @@ public class InterviewService {
         );
     }
     public NOptional<String> deleteInterview(String id){
-            return NOptional.of(id);
+        interviewRepository.deleteById(id);
+        return NOptional.of(id);
 
     }
 }

@@ -2,6 +2,7 @@ package com.dist.interview.javacc.wsrest;
 
 import com.dist.interview.javacc.infra.model.Criteria;
 import com.dist.interview.javacc.serviceapi.InterviewParserModule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/criteria")
 public class CriteriaWS {
+    @Autowired
     private InterviewParserModule parserModule;
     @PostMapping("/add-criteria")
     public String addCriteria(@RequestBody Criteria criteria) {
