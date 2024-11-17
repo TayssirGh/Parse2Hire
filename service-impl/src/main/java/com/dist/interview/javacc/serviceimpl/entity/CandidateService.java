@@ -23,6 +23,7 @@ public class CandidateService {
         candidateCollection.setAppliedPosition(candidate.getAppliedPosition());
         candidateCollection.setStatus(candidate.getStatus());
         candidateCollection.setCreatedAt(candidate.getCreatedAt());
+        candidateCollection.setInterviewId(candidate.getInterviewId());
         candidateRepository.insert(candidateCollection);
         candidateRepository.save(candidateCollection);
        return NOptional.of(candidate.getId());
@@ -30,8 +31,8 @@ public class CandidateService {
     public NOptional<List<Candidate>> findAllCandidates(){
         return NOptional.of(candidateRepository.findAll()
                 .stream()
-                .map(collection -> new Candidate(collection.getId(), collection.getName(),
-                        collection.getEmail(), collection.getAppliedPosition(), collection.getSkills(),
+                .map(collection -> new Candidate(collection.getId(), collection.getInterviewId(), collection.getName(),
+                        collection.getEmail(), collection.getAppliedPosition(), collection.getSkills(),collection.getRating(),
                         collection.getStatus(), collection.getCreatedAt()))
                 .collect(Collectors.toList())
         );
