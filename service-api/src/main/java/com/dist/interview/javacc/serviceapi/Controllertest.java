@@ -1,4 +1,4 @@
-package com.dist.interview.javacc.serviceapi.serviceapi;
+package com.dist.interview.javacc.serviceapi;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
