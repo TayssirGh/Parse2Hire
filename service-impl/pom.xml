@@ -41,6 +41,11 @@
             <artifactId>javacc-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>net.thevpc.nuts</groupId>
+            <artifactId>nuts-api</artifactId>
+            <version>0.8.5</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

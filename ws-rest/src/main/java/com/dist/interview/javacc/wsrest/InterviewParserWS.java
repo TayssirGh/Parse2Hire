@@ -14,11 +14,11 @@ public class InterviewParserWS {
     private InterviewParserModule parserModule;
     @PostMapping("/add-candidate")
     public String addCandidate(@RequestBody Candidate candidate) {
-        return parserModule.addCandidate(candidate);
+        return parserModule.addCandidate(candidate).get();
     }
     @GetMapping("/find-candidates")
     public List<Candidate> findCandidate() {
-        return parserModule.findAllCandidates();
+        return parserModule.findAllCandidates().get();
     }
     @GetMapping("/test")
     public String hello() {
@@ -26,6 +26,6 @@ public class InterviewParserWS {
     }
     @DeleteMapping("/delete/{id}")
     public String  removeCandidate(@RequestBody Candidate candidate) {
-        return parserModule.deleteCandidate(candidate.getId());
+        return parserModule.deleteCandidate(candidate.getId()).get();
     }
 }
