@@ -2,29 +2,50 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dal-jpa" />
         <module name="dal-api" />
+        <module name="springnuts-core-infra" />
         <module name="javacc-infra" />
-        <module name="ws-rest" />
+        <module name="javacc-dal-api" />
         <module name="service-impl" />
+        <module name="springnuts-core-dal" />
+        <module name="springnuts-core-service-api" />
+        <module name="javacc-ws-rest" />
+        <module name="application" />
+        <module name="springnuts-core-ws-rest" />
+        <module name="ws-rest" />
         <module name="dal-mongodb" />
+        <module name="springnuts-core-service-impl" />
+        <module name="javacc-service-api" />
         <module name="service-api" />
+        <module name="javacc-service-impl" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="application" options="-parameters" />
       <module name="dal-api" options="-parameters" />
       <module name="dal-jpa" options="-parameters" />
       <module name="dal-mongodb" options="-parameters" />
       <module name="javacc" options="" />
+      <module name="javacc-dal-api" options="-parameters" />
       <module name="javacc-infra" options="-parameters" />
+      <module name="javacc-service-api" options="-parameters" />
+      <module name="javacc-service-impl" options="-parameters" />
+      <module name="javacc-ws-rest" options="-parameters" />
       <module name="service-api" options="-parameters" />
       <module name="service-impl" options="-parameters" />
+      <module name="springnuts-core-dal" options="-parameters" />
+      <module name="springnuts-core-infra" options="-parameters" />
+      <module name="springnuts-core-service-api" options="-parameters" />
+      <module name="springnuts-core-service-impl" options="-parameters" />
+      <module name="springnuts-core-ws-rest" options="-parameters" />
       <module name="ws-rest" options="-parameters" />
     </option>
   </component>

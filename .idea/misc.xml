@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/dal-jpa/pom.xml" />
         <option value="$PROJECT_DIR$/dal-mongodb/pom.xml" />
         <option value="$PROJECT_DIR$/javacc-infra/pom.xml" />
+        <option value="$PROJECT_DIR$/../interview-app/app/pom.xml" />
+        <option value="$PROJECT_DIR$/../interview-app/core/pom.xml" />
       </list>
     </option>
   </component>

@@ -9,5 +9,13 @@
     <file url="file://$PROJECT_DIR$/service-impl/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ws-rest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/app/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/dal/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/infra/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/service-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/service-impl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../interview-app/core/ws-rest/src/main/java" charset="UTF-8" />
   </component>
 </project>
