@@ -9,8 +9,6 @@
     <description>javacc module</description>
     <packaging>pom</packaging>
     <modules>
-        <module>dal-api</module>
-        <module>dal-jpa</module>
         <module>dal-mongodb</module>
         <module>service-api</module>
         <module>service-impl</module>
