@@ -1,8 +1,10 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.entity.InterviewCollection;
+import com.dist.interview.javacc.dal.mongodb.entity.InterviewEntity;
 import com.dist.interview.javacc.dal.mongodb.repo.InterviewRepository;
 import com.dist.interview.javacc.infra.model.Interview;
+import com.dist.interview.javacc.serviceimpl.converter.InterviewConverter;
+import net.thevpc.nuts.util.NAssert;
 import net.thevpc.nuts.util.NOptional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,23 +16,12 @@ import java.util.stream.Collectors;
 public class InterviewService {
     @Autowired
     private InterviewRepository interviewRepository;
-    public NOptional<String> addInterview(Interview interview) {
-        InterviewCollection interviewCollection = new InterviewCollection();
-        interviewCollection.setId(interview.getId());
-        interviewCollection.setCandidateId(interview.getCandidateId());
-        interviewCollection.setCriteriaId(interview.getCriteriaId());
-        interviewCollection.setInterviewerName(interview.getInterviewerName());
-        interviewCollection.setCompanyName(interview.getCompanyName());
-        interviewCollection.setInterviewScore(interview.getInterviewScore());
-        interviewCollection.setResponseTime(interview.getResponseTime());
-        interviewCollection.setFeedback(interview.getFeedback());
-        interviewCollection.setRating(interview.getRating());
-        interviewCollection.setResult(interview.getResult());
-        interviewCollection.setCreatedAt(interview.getCreatedAt());
-
-        interviewRepository.insert(interviewCollection);
-        interviewRepository.save(interviewCollection);
-        return NOptional.of(interview.getId());
+    public Interview addInterview(Interview interview) {
+        NAssert.requireTrue(interview != null, "interview must not be null");
+        InterviewEntity i = InterviewConverter.INSTANCE.toEntity(interview);
+        interviewRepository.insert(i);
+        interviewRepository.save(i);
+        return interview;
     }
     public NOptional<List<Interview>> findAllInterviews(){
         return NOptional.of(interviewRepository.findAll()

@@ -7,19 +7,22 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Document(collection = "criteria")
-public class CriteriaCollection {
+@Document(collection = "interview")
+public class InterviewEntity {
     @Id
     private String id;
-    private String position;
-    private Double minimumScore;
-    private Integer maximumResponseTime;
-    private List<String> requiredSkills;
-    private String criteriaDescription;
-    private List<String> candidateIds;
+    private String candidateId;
+    private String criteriaId;
+    private Date interviewDate;
+    private String interviewerName;
+    private String companyName;
+    private Double interviewScore;
+    private Integer responseTime;
+    private String feedback;
+    private Double rating;
+    private String result;
     private Date createdAt;
 }

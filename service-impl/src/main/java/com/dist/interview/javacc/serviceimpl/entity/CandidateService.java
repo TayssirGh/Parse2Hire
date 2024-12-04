@@ -1,8 +1,10 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.entity.CandidateCollection;
+import com.dist.interview.javacc.dal.mongodb.entity.CandidateEntity;
 import com.dist.interview.javacc.dal.mongodb.repo.CandidateRepository;
 import com.dist.interview.javacc.infra.model.Candidate;
+import com.dist.interview.javacc.serviceimpl.converter.CandidateConverter;
+import net.thevpc.nuts.util.NAssert;
 import net.thevpc.nuts.util.NOptional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,19 +16,12 @@ import java.util.stream.Collectors;
 public class CandidateService {
     @Autowired
     private CandidateRepository candidateRepository;
-    public NOptional<String> addCandidate(Candidate candidate) {
-        CandidateCollection candidateCollection = new CandidateCollection();
-        candidateCollection.setId(candidate.getId());
-        candidateCollection.setName(candidate.getName());
-        candidateCollection.setEmail(candidate.getEmail());
-        candidateCollection.setSkills(candidate.getSkills());
-        candidateCollection.setAppliedPosition(candidate.getAppliedPosition());
-        candidateCollection.setStatus(candidate.getStatus());
-        candidateCollection.setCreatedAt(candidate.getCreatedAt());
-        candidateCollection.setInterviewId(candidate.getInterviewId());
-        candidateRepository.insert(candidateCollection);
-        candidateRepository.save(candidateCollection);
-       return NOptional.of(candidate.getId());
+    public Candidate addCandidate(Candidate candidate) {
+        NAssert.requireTrue(candidate != null, "candidate must not be null");
+        CandidateEntity c = CandidateConverter.INSTANCE.toEntity(candidate);
+        candidateRepository.insert(c);
+        candidateRepository.save(c);
+       return candidate;
     }
     public NOptional<List<Candidate>> findAllCandidates(){
         return NOptional.of(candidateRepository.findAll()

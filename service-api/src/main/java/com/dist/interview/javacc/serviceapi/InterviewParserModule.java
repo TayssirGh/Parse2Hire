@@ -9,15 +9,15 @@ import java.util.List;
 
 public interface InterviewParserModule {
 //    ----------------candidate-crud----------------------------------
-    NOptional<String> addCandidate(Candidate candidate);
+    Candidate addCandidate(Candidate candidate);
     NOptional<List<Candidate>> findAllCandidates();
     NOptional<String> deleteCandidate(String candidate);
 //    ----------------interview-crud----------------------------------
-    NOptional<String> addInterview(Interview interview);
+    Interview addInterview(Interview interview);
     NOptional<List<Interview>> findAllInterviews();
     NOptional<String> deleteInterview(String interview);
 //    ----------------criteria-crud----------------------------------
-    NOptional<String> addCriteria(Criteria criteria);
+    Criteria addCriteria(Criteria criteria);
     NOptional<List<Criteria>> findAllCriterias();
     NOptional<String> deleteCriteria(String interview);
 

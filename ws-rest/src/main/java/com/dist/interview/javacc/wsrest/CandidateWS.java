@@ -13,8 +13,8 @@ public class CandidateWS {
     @Autowired
     private InterviewParserModule parserModule;
     @PostMapping("/add-candidate")
-    public String addCandidate(@RequestBody Candidate candidate) {
-        return parserModule.addCandidate(candidate).get();
+    public Candidate addCandidate(@RequestBody Candidate candidate) {
+        return parserModule.addCandidate(candidate);
     }
     @GetMapping("/find-candidates")
     public List<Candidate> findCandidate() {

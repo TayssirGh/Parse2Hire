@@ -13,8 +13,8 @@ public class CriteriaWS {
     @Autowired
     private InterviewParserModule parserModule;
     @PostMapping("/add-criteria")
-    public String addCriteria(@RequestBody Criteria criteria) {
-        return parserModule.addCriteria(criteria).get();
+    public Criteria addCriteria(@RequestBody Criteria criteria) {
+        return parserModule.addCriteria(criteria);
     }
     @GetMapping("/find-criterias")
     public List<Criteria> findCriteria() {

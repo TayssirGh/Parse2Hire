@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Document(collection = "candidate")
-public class CandidateCollection {
+public class CandidateEntity {
     @Id
     private String id;
     private String interviewId;
