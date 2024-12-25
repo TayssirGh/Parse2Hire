@@ -20,8 +20,8 @@
         <module name="dal-mongodb" />
         <module name="javacc-service-api" />
         <module name="service-api" />
-        <module name="javacc-service-impl" />
         <module name="interview-core-infra" />
+        <module name="javacc-service-impl" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
