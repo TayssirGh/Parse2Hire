@@ -37,8 +37,6 @@ public class CandidateService {
             candidateRepository.deleteById(id);
             return NOptional.of(id);
         }
-        else {
-            throw new RuntimeException();
-        }
+        throw new IllegalArgumentException("Candidate with ID " + id + " does not exist");
     }
 }

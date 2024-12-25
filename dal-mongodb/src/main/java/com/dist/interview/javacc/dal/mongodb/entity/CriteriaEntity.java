@@ -19,6 +19,6 @@ public class CriteriaEntity {
     private Double minimumScore;
     private Integer maximumResponseTime;
     private List<String> requiredSkills;
-    private List<String> candidateIds;
+    private String candidateId;
     private Date createdAt;
 }

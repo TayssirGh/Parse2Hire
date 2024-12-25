@@ -14,6 +14,6 @@ public class Criteria {
     private Integer maximumResponseTime;
     private List<String> requiredSkills;
 //    private String syntaxTemplate;
-    private List<String> candidateIds;
+    private String candidateId;
     private Date createdAt;
 }
