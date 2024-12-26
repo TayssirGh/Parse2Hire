@@ -1,0 +1,88 @@
+PARSER_BEGIN(QueryParser)
+
+public class QueryParser {
+    public static void main(String[] args) throws ParseException {
+        System.out.println("parse to hire :");
+        QueryParser parser = new QueryParser(System.in);
+        parser.statement();
+        System.out.println("Parsing completed successfully!");
+    }
+}
+
+PARSER_END(QueryParser)
+
+SKIP :
+{
+    " " | "\t" | "\n" | "\r"
+}
+TOKEN :
+{
+    < USE: "USE" >
+  | < TEMPLATE: "TEMPLATE" >
+  | < FOR: "FOR" >
+  | < ALL: "ALL" >
+  | < CANDIDATES: "CANDIDATES" >
+  | < WHERE: "WHERE" >
+  | < AND: "AND" >
+  | < OR: "OR" >
+  | < MATCH: "MATCH" >
+  | < STRING: "\"" (~["\""])* "\"" >
+  | < IDENTIFIER: (["a"-"z", "A"-"Z", "_"]) (["a"-"z", "A"-"Z", "0"-"9", "_"])* >
+  | < EQ: "=" >
+  | < LT: "<" >
+  | < GT: ">" >
+  | < LTE: "<=" >
+  | < GTE: ">=" >
+  | < LBRACE: "{" >
+  | < RBRACE: "}" >
+  | < LPAREN: "(" >
+  | < RPAREN: ")" >
+}
+
+void statement() :
+{}
+{
+    <LBRACE> useClause() forClause() whereClause() <RBRACE> /*[<EOF>]*/
+}
+
+void useClause() :
+{}
+{
+    <USE> <TEMPLATE> <STRING>
+}
+
+void forClause() :
+{}
+{
+    <FOR> <ALL> <CANDIDATES>
+}
+
+void whereClause() :
+{}
+{
+    <WHERE> condition()
+}
+
+void condition() :
+{}
+{
+    <LPAREN> condition() (logicalOperator() condition())* <RPAREN>
+    |
+    <IDENTIFIER> operator() <IDENTIFIER>
+}
+
+void operator() :
+{}
+{
+    <EQ> | <GTE> | <LTE> | <LT> | <GT> | <MATCH>
+}
+
+void logicalOperator() :
+{}
+{
+    <AND> | <OR>
+}
+
+
+
+

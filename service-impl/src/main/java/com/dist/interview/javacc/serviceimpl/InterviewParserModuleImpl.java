@@ -1,8 +1,7 @@
 package com.dist.interview.javacc.serviceimpl;
 
 import com.dist.interview.javacc.serviceapi.InterviewParserModule;
-//import com.dist.interview.javacc.serviceimpl.business.ParserService;
-import com.dist.interview.javacc.serviceimpl.business.ParserService;
+import com.dist.interview.javacc.serviceimpl.service.ParserService;
 import com.dist.interview.javacc.serviceimpl.entity.CandidateService;
 import com.dist.interview.javacc.serviceimpl.entity.CriteriaService;
 import com.dist.interview.javacc.serviceimpl.entity.InterviewService;

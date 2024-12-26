@@ -1,4 +1,4 @@
-package com.dist.interview.javacc.serviceimpl.business;
+package com.dist.interview.javacc.serviceimpl.service;
 
 import com.dist.interview.javacc.infra.model.EmailRequest;
 import org.springframework.beans.factory.annotation.Autowired;
