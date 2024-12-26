@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dal-jpa" />
         <module name="dal-api" />
         <module name="interview-core-ws-rest" />
         <module name="javacc-infra" />
@@ -32,7 +33,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="application" options="-parameters" />
       <module name="dal-api" options="-parameters" />
-      <module name="dal-jpa" options="-parameters" />
+      <module name="dal-jpa" options="" />
       <module name="dal-mongodb" options="-parameters" />
       <module name="interview-core-dal" options="-parameters" />
       <module name="interview-core-infra" options="-parameters" />
