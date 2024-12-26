@@ -1,0 +1,12 @@
+Subject: Congratulations on Your Interview!
+
+Body:
+Dear {name},
+
+We are pleased to inform you that you have been accepted for the position of {appliedPosition} at {companyName}.
+Your interview score was {interviewScore}, and your response time was {responseTime} minutes.
+
+Thank you for your impressive performance, and we look forward to having you on board.
+
+Best regards,
+{interviewerName}

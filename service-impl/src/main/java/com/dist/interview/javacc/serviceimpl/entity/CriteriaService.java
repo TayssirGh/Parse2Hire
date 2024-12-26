@@ -35,7 +35,8 @@ public class CriteriaService {
                         collection.getMaximumResponseTime(),
                         collection.getRequiredSkills(),
                         collection.getCandidateId(),
-                        collection.getCreatedAt()
+                        collection.getCreatedAt(),
+                        collection.getMaximumRank()
                 ))
                 .collect(Collectors.toList())
         );

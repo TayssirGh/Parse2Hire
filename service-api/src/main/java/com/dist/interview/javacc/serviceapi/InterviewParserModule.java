@@ -2,6 +2,7 @@ package com.dist.interview.javacc.serviceapi;
 
 import com.dist.interview.javacc.infra.model.Candidate;
 import com.dist.interview.javacc.infra.model.Criteria;
+import com.dist.interview.javacc.infra.model.EmailRequest;
 import com.dist.interview.javacc.infra.model.Interview;
 import net.thevpc.nuts.util.NOptional;
 
@@ -21,4 +22,6 @@ public interface InterviewParserModule {
     NOptional<List<Criteria>> findAllCriterias();
     NOptional<String> deleteCriteria(String interview);
 
+
+    void sendEmail(EmailRequest emailRequest);
 }

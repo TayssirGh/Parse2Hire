@@ -13,7 +13,8 @@ public class Criteria {
     private Double minimumScore;
     private Integer maximumResponseTime;
     private List<String> requiredSkills;
-//    private String syntaxTemplate;
+    //    private String syntaxTemplate;
     private String candidateId;
     private Date createdAt;
+    private Integer maximumRank;
 }

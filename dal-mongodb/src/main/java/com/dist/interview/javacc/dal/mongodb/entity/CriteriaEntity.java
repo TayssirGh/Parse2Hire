@@ -21,4 +21,5 @@ public class CriteriaEntity {
     private List<String> requiredSkills;
     private String candidateId;
     private Date createdAt;
+    private Integer maximumRank;
 }

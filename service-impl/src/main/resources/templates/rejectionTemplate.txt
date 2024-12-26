@@ -1,0 +1,12 @@
+Subject: Thank You for Interviewing with Us
+
+Body:
+Dear {name},
+
+Thank you for taking the time to interview for the position of {appliedPosition} at {companyName}.
+While your interview score was {interviewScore}, you were ranked at {rank} we regret to inform you that we are unable to proceed further as we accept .
+
+We wish you all the best in your future endeavors.
+
+Sincerely,
+{interviewerName}
