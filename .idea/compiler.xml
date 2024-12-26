@@ -25,7 +25,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="dal-jpa" target="17" />
       <module name="javacc-dal-api" target="17" />
     </bytecodeTargetLevel>
   </component>

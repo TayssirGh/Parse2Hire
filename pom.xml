@@ -13,6 +13,7 @@
         <module>service-api</module>
         <module>service-impl</module>
         <module>ws-rest</module>
+        <module>dal-jpa</module>
     </modules>
     <properties>
         <java.version>17</java.version>

@@ -19,7 +19,6 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/dal-api/pom.xml" />
-        <option value="$PROJECT_DIR$/dal-jpa/pom.xml" />
       </set>
     </option>
   </component>
