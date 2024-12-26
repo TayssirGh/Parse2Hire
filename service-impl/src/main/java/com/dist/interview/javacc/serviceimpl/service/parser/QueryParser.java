@@ -34,7 +34,7 @@ parsedQuery.setTemplateName(templateName);
     jj_consume_token(USE);
     jj_consume_token(TEMPLATE);
     t = jj_consume_token(STRING);
-{if ("" != null) return t.image.substring(1, t.image.length() - 1);} // Remove quotes
+{if ("" != null) return t.image.substring(1, t.image.length() - 1);}
 
     throw new Error("Missing return statement in function");
 }
@@ -70,8 +70,7 @@ conditions.add(condition);
       jj_la1[0] = jj_gen;
       ;
     }
-{if ("" != null) return left;} // Ensures left is returned when there's no logical operator
-
+{if ("" != null) return left;}
     throw new Error("Missing return statement in function");
 }
 
@@ -84,8 +83,7 @@ conditions.add(condition);
       jj_consume_token(LPAREN);
       nestedCondition = condition();
       jj_consume_token(RPAREN);
-{if ("" != null) return nestedCondition;} // Return the nested condition result
-
+{if ("" != null) return nestedCondition;}
       break;
       }
     case IDENTIFIER:{
@@ -94,10 +92,9 @@ conditions.add(condition);
       tRightOperand = jj_consume_token(IDENTIFIER);
 leftOperand = tLeftOperand.image;
     rightOperand = tRightOperand.image;
-    {if ("" != null) return new Condition(leftOperand, operator, rightOperand);} // Return simple condition
+    {if ("" != null) return new Condition(leftOperand, operator, rightOperand);}
 
-    {if (true) throw new ParseException("Invalid simple condition format");} // Catch-all error for unmatched input
-
+    {if (true) throw new ParseException("Invalid simple condition format");}
       break;
       }
     default:

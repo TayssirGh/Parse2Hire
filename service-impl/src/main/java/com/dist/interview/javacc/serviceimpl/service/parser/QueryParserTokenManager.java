@@ -404,7 +404,7 @@ static private int jjMoveNfa_0(int startState, int curPos)
                      kind = 18;
                   break;
                case 4:
-                  if ((0x3ff000000000000L & l) == 0L)
+                  if ((0x3ff400000000000L & l) == 0L)
                      break;
                   if (kind > 19)
                      kind = 19;
