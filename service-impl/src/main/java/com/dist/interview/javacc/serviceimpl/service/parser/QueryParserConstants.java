@@ -9,45 +9,45 @@ public interface QueryParserConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int USE = 5;
+  int LBRACE = 5;
   /** RegularExpression Id. */
-  int TEMPLATE = 6;
+  int RBRACE = 6;
   /** RegularExpression Id. */
-  int FOR = 7;
+  int LPAREN = 7;
   /** RegularExpression Id. */
-  int ALL = 8;
+  int RPAREN = 8;
   /** RegularExpression Id. */
-  int CANDIDATES = 9;
+  int USE = 9;
   /** RegularExpression Id. */
-  int WHERE = 10;
+  int TEMPLATE = 10;
   /** RegularExpression Id. */
-  int AND = 11;
+  int FOR = 11;
   /** RegularExpression Id. */
-  int OR = 12;
+  int ALL = 12;
   /** RegularExpression Id. */
-  int MATCH = 13;
+  int CANDIDATES = 13;
   /** RegularExpression Id. */
-  int STRING = 14;
+  int WHERE = 14;
   /** RegularExpression Id. */
-  int IDENTIFIER = 15;
+  int AND = 15;
   /** RegularExpression Id. */
-  int EQ = 16;
+  int OR = 16;
   /** RegularExpression Id. */
-  int LT = 17;
+  int MATCH = 17;
   /** RegularExpression Id. */
-  int GT = 18;
+  int STRING = 18;
   /** RegularExpression Id. */
-  int LTE = 19;
+  int IDENTIFIER = 19;
   /** RegularExpression Id. */
-  int GTE = 20;
+  int EQ = 20;
   /** RegularExpression Id. */
-  int LBRACE = 21;
+  int LT = 21;
   /** RegularExpression Id. */
-  int RBRACE = 22;
+  int GT = 22;
   /** RegularExpression Id. */
-  int LPAREN = 23;
+  int LTE = 23;
   /** RegularExpression Id. */
-  int RPAREN = 24;
+  int GTE = 24;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -59,6 +59,10 @@ public interface QueryParserConstants {
     "\"\\t\"",
     "\"\\n\"",
     "\"\\r\"",
+    "\"{\"",
+    "\"}\"",
+    "\"(\"",
+    "\")\"",
     "\"USE\"",
     "\"TEMPLATE\"",
     "\"FOR\"",
@@ -75,10 +79,6 @@ public interface QueryParserConstants {
     "\">\"",
     "\"<=\"",
     "\">=\"",
-    "\"{\"",
-    "\"}\"",
-    "\"(\"",
-    "\")\"",
   };
 
 }

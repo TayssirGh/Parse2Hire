@@ -17,7 +17,11 @@ SKIP :
 }
 TOKEN :
 {
-    < USE: "USE" >
+    < LBRACE: "{" >
+  | < RBRACE: "}" >
+  | < LPAREN: "(" >
+  | < RPAREN: ")" >
+  | < USE: "USE" >
   | < TEMPLATE: "TEMPLATE" >
   | < FOR: "FOR" >
   | < ALL: "ALL" >
@@ -33,16 +37,12 @@ TOKEN :
   | < GT: ">" >
   | < LTE: "<=" >
   | < GTE: ">=" >
-  | < LBRACE: "{" >
-  | < RBRACE: "}" >
-  | < LPAREN: "(" >
-  | < RPAREN: ")" >
 }
 
 void statement() :
 {}
 {
-    <LBRACE> useClause() forClause() whereClause() <RBRACE> /*[<EOF>]*/
+    <LBRACE> useClause() forClause() whereClause() <RBRACE>
 }
 
 void useClause() :

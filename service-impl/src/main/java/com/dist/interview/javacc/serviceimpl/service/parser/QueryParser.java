@@ -137,7 +137,7 @@ public class QueryParser implements QueryParserConstants {
 	   jj_la1_init_0();
 	}
 	private static void jj_la1_init_0() {
-	   jj_la1_0 = new int[] {0x1800,0x808000,0x1f2000,0x1800,};
+	   jj_la1_0 = new int[] {0x18000,0x80080,0x1f20000,0x18000,};
 	}
 
   /** Constructor with InputStream. */
