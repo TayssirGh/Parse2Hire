@@ -1,11 +1,19 @@
 PARSER_BEGIN(QueryParser)
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dist.interview.javacc.infra.model.Condition;
+import com.dist.interview.javacc.infra.model.LogicalOperator;
+import com.dist.interview.javacc.infra.model.Operator;
+import com.dist.interview.javacc.infra.model.ParsedQuery;
+
 public class QueryParser {
     public static void main(String[] args) throws ParseException {
         System.out.println("parse to hire :");
         QueryParser parser = new QueryParser(System.in);
-        parser.statement();
-        System.out.println("Parsing completed successfully!");
+        ParsedQuery query = parser.statement();
+        System.out.println("Parsed Query: " + query);
     }
 }
 
@@ -39,16 +47,34 @@ TOKEN :
   | < GTE: ">=" >
 }
 
-void statement() :
-{}
+ParsedQuery statement() :
 {
-    <LBRACE> useClause() forClause() whereClause() <RBRACE>
+    ParsedQuery parsedQuery = new ParsedQuery();
+    String templateName;
+    List<Condition> conditions = new ArrayList<>();
+}
+{
+    <LBRACE>
+    templateName = useClause()
+    forClause()
+    conditions = whereClause()
+    <RBRACE>
+    {
+        parsedQuery.setTemplateName(templateName);
+        parsedQuery.setConditions(conditions);
+        return parsedQuery;
+    }
 }
 
-void useClause() :
-{}
+String useClause() :
 {
-    <USE> <TEMPLATE> <STRING>
+    Token t;
+}
+{
+    <USE> <TEMPLATE> t=<STRING>
+    {
+        return t.image.substring(1, t.image.length() - 1); // Remove quotes
+    }
 }
 
 void forClause() :
@@ -57,32 +83,98 @@ void forClause() :
     <FOR> <ALL> <CANDIDATES>
 }
 
-void whereClause() :
-{}
+List<Condition> whereClause() :
 {
-    <WHERE> condition()
+    Condition condition;
+    List<Condition> conditions = new ArrayList<>();
+}
+{
+    <WHERE> condition = condition()
+    {
+        conditions.add(condition);
+        return conditions;
+    }
 }
 
-void condition() :
-{}
+Condition condition() :
 {
-    <LPAREN> condition() (logicalOperator() condition())* <RPAREN>
+    Condition left = null;
+    LogicalOperator logicalOperator = null;
+    Condition right = null;
+}
+{
+    left = simpleCondition()
+    (
+        logicalOperator = logicalOperator()
+        right = condition()
+        {
+            return new Condition(left, logicalOperator, right, false);
+        }
+    )?
+    {
+        return left;
+    }
+}
+
+Condition simpleCondition() :
+{
+    String leftOperand = null, rightOperand = null;
+    Operator operator = null;
+    Token tLeftOperand, tRightOperand;
+    Condition nestedCondition = null;
+}
+{
+    (
+        <LPAREN>
+        nestedCondition = condition()
+        <RPAREN>
+        {
+            return nestedCondition;
+        }
+    )
     |
-    <IDENTIFIER> operator() <IDENTIFIER>
+    tLeftOperand=<IDENTIFIER>
+    operator=operator()
+    tRightOperand=<IDENTIFIER>
+    {
+    leftOperand = tLeftOperand.image;
+    rightOperand = tRightOperand.image;
+    return new Condition(leftOperand, operator, rightOperand);
+
+    throw new ParseException("Invalid simple condition format");
+}
 }
 
-void operator() :
-{}
+
+
+Operator operator() :
 {
-    <EQ> | <GTE> | <LTE> | <LT> | <GT> | <MATCH>
+    Operator op = null;
 }
-
-void logicalOperator() :
-{}
 {
-    <AND> | <OR>
+    (
+        <EQ> { op = Operator.EQ; }
+      | <GTE> { op = Operator.GTE; }
+      | <LTE> { op = Operator.LTE; }
+      | <LT> { op = Operator.LT; }
+      | <GT> { op = Operator.GT; }
+      | <MATCH> { op = Operator.MATCH; }
+    )
+    {
+        return op;
+    }
 }
 
-
-
-
+LogicalOperator logicalOperator() :
+{
+    LogicalOperator op = null;
+}
+{
+    (
+        <AND> { op = LogicalOperator.AND; }
+      | <OR> { op = LogicalOperator.OR; }
+    )
+    {
+        return op;
+    }
+}
