@@ -8,15 +8,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class Interview {
     private String id;
-    private String candidateId;
     private String criteriaId;
     private Date interviewDate;
     private String interviewerName;
     private String companyName;
-    private Double interviewScore;
-    private Integer responseTime;
-    private String feedback;
-    private Double rating;
-    private String result;
     private Date createdAt;
 }

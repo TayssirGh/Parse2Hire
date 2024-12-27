@@ -1,7 +1,11 @@
 package com.dist.interview.javacc.infra.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Condition {
     private Condition left;

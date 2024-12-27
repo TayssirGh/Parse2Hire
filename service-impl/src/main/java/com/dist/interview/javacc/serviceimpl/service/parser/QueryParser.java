@@ -18,7 +18,7 @@ public class QueryParser implements QueryParserConstants {
 
   static final public ParsedQuery statement() throws ParseException {ParsedQuery parsedQuery = new ParsedQuery();
     String templateName;
-    List<Condition> conditions;
+    List<Condition> conditions = new ArrayList<>();
     jj_consume_token(LBRACE);
     templateName = useClause();
     forClause();
@@ -34,7 +34,7 @@ parsedQuery.setTemplateName(templateName);
     jj_consume_token(USE);
     jj_consume_token(TEMPLATE);
     t = jj_consume_token(STRING);
-{if ("" != null) return t.image.substring(1, t.image.length() - 1);}
+{if ("" != null) return t.image.substring(1, t.image.length() - 1);} // Remove quotes
 
     throw new Error("Missing return statement in function");
 }
@@ -89,7 +89,7 @@ conditions.add(condition);
     case IDENTIFIER:{
       tLeftOperand = jj_consume_token(IDENTIFIER);
       operator = operator();
-      tRightOperand = jj_consume_token(IDENTIFIER);
+      tRightOperand = jj_consume_token(NUMBER);
 leftOperand = tLeftOperand.image;
     rightOperand = tRightOperand.image;
     {if ("" != null) return new Condition(leftOperand, operator, rightOperand);}
@@ -183,7 +183,7 @@ op = LogicalOperator.OR;
 	   jj_la1_init_0();
 	}
 	private static void jj_la1_init_0() {
-	   jj_la1_0 = new int[] {0x18000,0x80080,0x1f20000,0x18000,};
+	   jj_la1_0 = new int[] {0x18000,0x80080,0x3e20000,0x18000,};
 	}
 
   /** Constructor with InputStream. */
@@ -329,7 +329,7 @@ op = LogicalOperator.OR;
   /** Generate ParseException. */
   static public ParseException generateParseException() {
 	 jj_expentries.clear();
-	 boolean[] la1tokens = new boolean[25];
+	 boolean[] la1tokens = new boolean[26];
 	 if (jj_kind >= 0) {
 	   la1tokens[jj_kind] = true;
 	   jj_kind = -1;
@@ -343,7 +343,7 @@ op = LogicalOperator.OR;
 		 }
 	   }
 	 }
-	 for (int i = 0; i < 25; i++) {
+	 for (int i = 0; i < 26; i++) {
 	   if (la1tokens[i]) {
 		 jj_expentry = new int[1];
 		 jj_expentry[0] = i;

@@ -40,6 +40,7 @@ TOKEN :
   | < MATCH: "MATCH" >
   | < STRING: "\"" (~["\""])* "\"" >
   | < IDENTIFIER: (["a"-"z", "A"-"Z", "_"]) (["a"-"z", "A"-"Z", "0"-"9", "_", "."])* >
+  | < NUMBER: (["0"-"9"])+ >
   | < EQ: "=" >
   | < LT: "<" >
   | < GT: ">" >
@@ -135,7 +136,7 @@ Condition simpleCondition() :
     |
     tLeftOperand=<IDENTIFIER>
     operator=operator()
-    tRightOperand=<IDENTIFIER>
+    tRightOperand=<NUMBER>
     {
     leftOperand = tLeftOperand.image;
     rightOperand = tRightOperand.image;

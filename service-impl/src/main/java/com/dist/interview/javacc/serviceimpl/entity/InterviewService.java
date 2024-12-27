@@ -27,16 +27,10 @@ public class InterviewService {
         return NOptional.of(interviewRepository.findAll()
                 .stream()
                 .map(collection -> new Interview(collection.getId(),
-                        collection.getCandidateId(),
                         collection.getCriteriaId(),
                         collection.getInterviewDate(),
                         collection.getInterviewerName(),
                         collection.getCompanyName(),
-                        collection.getInterviewScore(),
-                        collection.getResponseTime(),
-                        collection.getFeedback(),
-                        collection.getRating(),
-                        collection.getResult(),
                         collection.getCreatedAt()))
                 .collect(Collectors.toList())
         );

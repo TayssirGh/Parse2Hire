@@ -39,15 +39,17 @@ public interface QueryParserConstants {
   /** RegularExpression Id. */
   int IDENTIFIER = 19;
   /** RegularExpression Id. */
-  int EQ = 20;
+  int NUMBER = 20;
   /** RegularExpression Id. */
-  int LT = 21;
+  int EQ = 21;
   /** RegularExpression Id. */
-  int GT = 22;
+  int LT = 22;
   /** RegularExpression Id. */
-  int LTE = 23;
+  int GT = 23;
   /** RegularExpression Id. */
-  int GTE = 24;
+  int LTE = 24;
+  /** RegularExpression Id. */
+  int GTE = 25;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -74,6 +76,7 @@ public interface QueryParserConstants {
     "\"MATCH\"",
     "<STRING>",
     "<IDENTIFIER>",
+    "<NUMBER>",
     "\"=\"",
     "\"<\"",
     "\">\"",
