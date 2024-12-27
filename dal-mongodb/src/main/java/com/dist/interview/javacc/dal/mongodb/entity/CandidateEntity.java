@@ -20,7 +20,10 @@ public class CandidateEntity {
     private String email;
     private String appliedPosition;
     private List<String> skills;
-    private Integer rating;
+    private Double interviewScore;
+    private Integer responseTime;
+    private String feedback;
+    private Double rating;
     private String status;
     private Date createdAt;
 }
