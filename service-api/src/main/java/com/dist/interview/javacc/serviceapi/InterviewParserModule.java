@@ -21,5 +21,6 @@ public interface InterviewParserModule {
 //    ----------------parser-logic---------------------------------
     ParsedQuery parseQuery(ParserInput query);
     List<Candidate> findCandidatesByParsedQuery(ParsedQuery parsedQuery);
+    List<Candidate> sendParsedEmail(ParserInput input);
     void sendEmail(EmailRequest emailRequest);
 }

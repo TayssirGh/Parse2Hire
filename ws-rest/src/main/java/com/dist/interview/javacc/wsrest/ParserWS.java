@@ -20,6 +20,10 @@ import java.util.Map;
 public class ParserWS {
     @Autowired
     private InterviewParserModule parserModule;
+    @PostMapping("/send-parsed-email")
+    public List<Candidate> sendEmails(@RequestBody ParserInput parserInput) {
+        return parserModule.sendParsedEmail(parserInput);
+    }
     @PostMapping("/find-parsed-candidates")
     public List<Candidate> findCandidates(@RequestBody ParsedQuery parsedQuery) {
         return parserModule.findCandidatesByParsedQuery(parsedQuery);

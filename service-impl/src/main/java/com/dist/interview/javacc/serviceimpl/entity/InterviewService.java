@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class InterviewService {
     @Autowired
     private InterviewRepository interviewRepository;
+
     public Interview addInterview(Interview interview) {
         NAssert.requireTrue(interview != null, "interview must not be null");
         InterviewEntity i = InterviewConverter.INSTANCE.toEntity(interview);
@@ -23,7 +24,8 @@ public class InterviewService {
         interviewRepository.save(i);
         return interview;
     }
-    public NOptional<List<Interview>> findAllInterviews(){
+
+    public NOptional<List<Interview>> findAllInterviews() {
         return NOptional.of(interviewRepository.findAll()
                 .stream()
                 .map(collection -> new Interview(collection.getId(),
@@ -35,7 +37,16 @@ public class InterviewService {
                 .collect(Collectors.toList())
         );
     }
-    public NOptional<String> deleteInterview(String id){
+
+    public NOptional<Interview> findInterviewById(String id) {
+        NAssert.requireTrue(id != null && !id.isEmpty(), "id must not be null or empty");
+        return interviewRepository.findById(id)
+                .map(InterviewConverter.INSTANCE::fromEntity)
+                .map(NOptional::of)
+                .orElse(NOptional.ofEmpty());
+    }
+
+    public NOptional<String> deleteInterview(String id) {
         interviewRepository.deleteById(id);
         return NOptional.of(id);
 

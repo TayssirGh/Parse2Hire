@@ -1,7 +1,6 @@
 package com.dist.interview.javacc.wsrest;
 
 import com.dist.interview.javacc.infra.model.Candidate;
-import com.dist.interview.javacc.infra.model.ParsedQuery;
 import com.dist.interview.javacc.serviceapi.InterviewParserModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
