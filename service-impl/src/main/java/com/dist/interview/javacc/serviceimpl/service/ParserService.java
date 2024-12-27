@@ -1,11 +1,11 @@
 package com.dist.interview.javacc.serviceimpl.service;
 
 import com.dist.interview.javacc.dal.mongodb.entity.CandidateEntity;
-import com.dist.interview.javacc.infra.model.Candidate;
-import com.dist.interview.javacc.infra.model.Condition;
-import com.dist.interview.javacc.infra.model.EmailRequest;
-import com.dist.interview.javacc.infra.model.ParsedQuery;
+import com.dist.interview.javacc.infra.exception.ValidationException;
+import com.dist.interview.javacc.infra.model.*;
 import com.dist.interview.javacc.serviceimpl.converter.CandidateConverter;
+import com.dist.interview.javacc.serviceimpl.service.parser.ParseException;
+import com.dist.interview.javacc.serviceimpl.service.parser.QueryParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
@@ -24,9 +24,53 @@ public class ParserService {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+    public ParsedQuery parseQuery(ParserInput query) {
+        QueryParser parser = new QueryParser(new java.io.StringReader(query.getSyntax()));
+        try {
+            ParsedQuery parsedQuery = parser.statement();
+            validateQuery(parsedQuery);
+            return parsedQuery;
+        } catch (ParseException | ValidationException e) {
+            throw new IllegalArgumentException("Failed to parse query: " + e.getMessage());
+        }
+    }
+    public void validateQuery(ParsedQuery query) throws ValidationException {
+        if (query.getTemplateName() == null || query.getTemplateName().trim().isEmpty()) {
+            throw new ValidationException("Template name must not be null or empty.");
+        }
+
+        if (query.getConditions() == null || query.getConditions().isEmpty()) {
+            throw new ValidationException("Conditions must not be null or empty.");
+        }
+
+        for (Condition condition : query.getConditions()) {
+            validateCondition(condition);
+        }
+    }
+
+    private void validateCondition(Condition condition) throws ValidationException {
+        if (condition.getLeftOperand() != null && condition.getOperator() != null && condition.getRightOperand() != null) {
+            validateOperand(condition.getLeftOperand());
+            validateOperand(condition.getRightOperand());
+            if (condition.getOperator() == null) {
+                throw new ValidationException("Operator in condition must not be null.");
+            }
+        } else if (condition.getLeft() != null && condition.getLogicalOperator() != null && condition.getRight() != null) {
+            validateCondition(condition.getLeft());
+            validateCondition(condition.getRight());
+        } else {
+            throw new ValidationException("Condition is incomplete or malformed.");
+        }
+    }
+
+    private void validateOperand(String operand) throws ValidationException {
+        if (operand == null || operand.trim().isEmpty()) {
+            throw new ValidationException("Operand must not be null or empty.");
+        }
+    }
 
     public List<Candidate> findCandidatesByParsedQuery(ParsedQuery parsedQuery) {
-        Criteria criteria = buildCriteriaFromCondition(parsedQuery.getConditions().get(0)); // Start from the root condition
+        Criteria criteria = buildCriteriaFromCondition(parsedQuery.getConditions().get(0));
         Query query = new Query(criteria);
         List<CandidateEntity> entities = mongoTemplate.find(query, CandidateEntity.class);
         return CandidateConverter.INSTANCE.fromEntityList(entities);
@@ -73,7 +117,6 @@ public class ParserService {
                 throw new IllegalArgumentException("Unsupported operator: " + condition.getOperator());
         }
     }
-
     public void sendEmail(EmailRequest emailRequest) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(emailRequest.getTo());
@@ -103,7 +146,6 @@ public class ParserService {
                 matchScore,
                 projectFields
         );
-
         List<CandidateEntity> entities = mongoTemplate.aggregate(aggregation, "candidate", CandidateEntity.class).getMappedResults();
         return CandidateConverter.INSTANCE.fromEntityList(entities);
 

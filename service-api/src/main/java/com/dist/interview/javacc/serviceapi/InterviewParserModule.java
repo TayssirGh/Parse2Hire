@@ -19,6 +19,7 @@ public interface InterviewParserModule {
     NOptional<List<Criteria>> findAllCriterias();
     NOptional<String> deleteCriteria(String interview);
 //    ----------------parser-logic---------------------------------
+    ParsedQuery parseQuery(ParserInput query);
     List<Candidate> findCandidatesByParsedQuery(ParsedQuery parsedQuery);
     void sendEmail(EmailRequest emailRequest);
 }

@@ -13,11 +13,7 @@ import java.util.List;
 public class CandidateWS {
     @Autowired
     private InterviewParserModule parserModule;
-    @PostMapping("/find-parsed-candidates")
-    public List<Candidate> findCandidates(@RequestBody ParsedQuery parsedQuery) {
-        return parserModule.findCandidatesByParsedQuery(parsedQuery);
-    }
-        @PostMapping("/add-candidate")
+    @PostMapping("/add-candidate")
     public Candidate addCandidate(@RequestBody Candidate candidate) {
         return parserModule.addCandidate(candidate);
     }

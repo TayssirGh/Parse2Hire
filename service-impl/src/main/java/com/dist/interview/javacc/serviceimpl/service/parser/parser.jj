@@ -1,3 +1,6 @@
+options {
+    STATIC = false;
+}
 PARSER_BEGIN(QueryParser)
 
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ SKIP :
 {
     " " | "\t" | "\n" | "\r"
 }
+
 TOKEN :
 {
     < LBRACE: "{" >

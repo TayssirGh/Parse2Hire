@@ -16,7 +16,7 @@ public class QueryParser implements QueryParserConstants {
         System.out.println("Parsed Query: " + query);
     }
 
-  static final public ParsedQuery statement() throws ParseException {ParsedQuery parsedQuery = new ParsedQuery();
+  final public ParsedQuery statement() throws ParseException {ParsedQuery parsedQuery = new ParsedQuery();
     String templateName;
     List<Condition> conditions = new ArrayList<>();
     jj_consume_token(LBRACE);
@@ -30,7 +30,7 @@ parsedQuery.setTemplateName(templateName);
     throw new Error("Missing return statement in function");
 }
 
-  static final public String useClause() throws ParseException {Token t;
+  final public String useClause() throws ParseException {Token t;
     jj_consume_token(USE);
     jj_consume_token(TEMPLATE);
     t = jj_consume_token(STRING);
@@ -39,13 +39,13 @@ parsedQuery.setTemplateName(templateName);
     throw new Error("Missing return statement in function");
 }
 
-  static final public void forClause() throws ParseException {
+  final public void forClause() throws ParseException {
     jj_consume_token(FOR);
     jj_consume_token(ALL);
     jj_consume_token(CANDIDATES);
 }
 
-  static final public List<Condition> whereClause() throws ParseException {Condition condition;
+  final public List<Condition> whereClause() throws ParseException {Condition condition;
     List<Condition> conditions = new ArrayList<>();
     jj_consume_token(WHERE);
     condition = condition();
@@ -54,7 +54,7 @@ conditions.add(condition);
     throw new Error("Missing return statement in function");
 }
 
-  static final public Condition condition() throws ParseException {Condition left = null;
+  final public Condition condition() throws ParseException {Condition left = null;
     LogicalOperator logicalOperator = null;
     Condition right = null;
     left = simpleCondition();
@@ -74,7 +74,7 @@ conditions.add(condition);
     throw new Error("Missing return statement in function");
 }
 
-  static final public Condition simpleCondition() throws ParseException {String leftOperand = null, rightOperand = null;
+  final public Condition simpleCondition() throws ParseException {String leftOperand = null, rightOperand = null;
     Operator operator = null;
     Token tLeftOperand, tRightOperand;
     Condition nestedCondition = null;
@@ -105,7 +105,7 @@ leftOperand = tLeftOperand.image;
     throw new Error("Missing return statement in function");
 }
 
-  static final public Operator operator() throws ParseException {Operator op = null;
+  final public Operator operator() throws ParseException {Operator op = null;
     switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
     case EQ:{
       jj_consume_token(EQ);
@@ -146,7 +146,7 @@ op = Operator.MATCH;
     throw new Error("Missing return statement in function");
 }
 
-  static final public LogicalOperator logicalOperator() throws ParseException {LogicalOperator op = null;
+  final public LogicalOperator logicalOperator() throws ParseException {LogicalOperator op = null;
     switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
     case AND:{
       jj_consume_token(AND);
@@ -167,17 +167,16 @@ op = LogicalOperator.OR;
     throw new Error("Missing return statement in function");
 }
 
-  static private boolean jj_initialized_once = false;
   /** Generated Token Manager. */
-  static public QueryParserTokenManager token_source;
-  static SimpleCharStream jj_input_stream;
+  public QueryParserTokenManager token_source;
+  SimpleCharStream jj_input_stream;
   /** Current token. */
-  static public Token token;
+  public Token token;
   /** Next token. */
-  static public Token jj_nt;
-  static private int jj_ntk;
-  static private int jj_gen;
-  static final private int[] jj_la1 = new int[4];
+  public Token jj_nt;
+  private int jj_ntk;
+  private int jj_gen;
+  final private int[] jj_la1 = new int[4];
   static private int[] jj_la1_0;
   static {
 	   jj_la1_init_0();
@@ -192,13 +191,6 @@ op = LogicalOperator.OR;
   }
   /** Constructor with InputStream and supplied encoding */
   public QueryParser(java.io.InputStream stream, String encoding) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser.  ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 try { jj_input_stream = new SimpleCharStream(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
 	 token_source = new QueryParserTokenManager(jj_input_stream);
 	 token = new Token();
@@ -208,11 +200,11 @@ op = LogicalOperator.OR;
   }
 
   /** Reinitialise. */
-  static public void ReInit(java.io.InputStream stream) {
+  public void ReInit(java.io.InputStream stream) {
 	  ReInit(stream, null);
   }
   /** Reinitialise. */
-  static public void ReInit(java.io.InputStream stream, String encoding) {
+  public void ReInit(java.io.InputStream stream, String encoding) {
 	 try { jj_input_stream.ReInit(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
 	 token_source.ReInit(jj_input_stream);
 	 token = new Token();
@@ -223,13 +215,6 @@ op = LogicalOperator.OR;
 
   /** Constructor. */
   public QueryParser(java.io.Reader stream) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser. ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 jj_input_stream = new SimpleCharStream(stream, 1, 1);
 	 token_source = new QueryParserTokenManager(jj_input_stream);
 	 token = new Token();
@@ -239,7 +224,7 @@ op = LogicalOperator.OR;
   }
 
   /** Reinitialise. */
-  static public void ReInit(java.io.Reader stream) {
+  public void ReInit(java.io.Reader stream) {
 	if (jj_input_stream == null) {
 	   jj_input_stream = new SimpleCharStream(stream, 1, 1);
 	} else {
@@ -258,13 +243,6 @@ op = LogicalOperator.OR;
 
   /** Constructor with generated Token Manager. */
   public QueryParser(QueryParserTokenManager tm) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser. ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 token_source = tm;
 	 token = new Token();
 	 jj_ntk = -1;
@@ -281,7 +259,7 @@ op = LogicalOperator.OR;
 	 for (int i = 0; i < 4; i++) jj_la1[i] = -1;
   }
 
-  static private Token jj_consume_token(int kind) throws ParseException {
+  private Token jj_consume_token(int kind) throws ParseException {
 	 Token oldToken;
 	 if ((oldToken = token).next != null) token = token.next;
 	 else token = token.next = token_source.getNextToken();
@@ -297,7 +275,7 @@ op = LogicalOperator.OR;
 
 
 /** Get the next Token. */
-  static final public Token getNextToken() {
+  final public Token getNextToken() {
 	 if (token.next != null) token = token.next;
 	 else token = token.next = token_source.getNextToken();
 	 jj_ntk = -1;
@@ -306,7 +284,7 @@ op = LogicalOperator.OR;
   }
 
 /** Get the specific Token. */
-  static final public Token getToken(int index) {
+  final public Token getToken(int index) {
 	 Token t = token;
 	 for (int i = 0; i < index; i++) {
 	   if (t.next != null) t = t.next;
@@ -315,19 +293,19 @@ op = LogicalOperator.OR;
 	 return t;
   }
 
-  static private int jj_ntk_f() {
+  private int jj_ntk_f() {
 	 if ((jj_nt=token.next) == null)
 	   return (jj_ntk = (token.next=token_source.getNextToken()).kind);
 	 else
 	   return (jj_ntk = jj_nt.kind);
   }
 
-  static private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
-  static private int[] jj_expentry;
-  static private int jj_kind = -1;
+  private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
+  private int[] jj_expentry;
+  private int jj_kind = -1;
 
   /** Generate ParseException. */
-  static public ParseException generateParseException() {
+  public ParseException generateParseException() {
 	 jj_expentries.clear();
 	 boolean[] la1tokens = new boolean[26];
 	 if (jj_kind >= 0) {
@@ -357,19 +335,19 @@ op = LogicalOperator.OR;
 	 return new ParseException(token, exptokseq, tokenImage);
   }
 
-  static private boolean trace_enabled;
+  private boolean trace_enabled;
 
 /** Trace enabled. */
-  static final public boolean trace_enabled() {
+  final public boolean trace_enabled() {
 	 return trace_enabled;
   }
 
   /** Enable tracing. */
-  static final public void enable_tracing() {
+  final public void enable_tracing() {
   }
 
   /** Disable tracing. */
-  static final public void disable_tracing() {
+  final public void disable_tracing() {
   }
 
 }
