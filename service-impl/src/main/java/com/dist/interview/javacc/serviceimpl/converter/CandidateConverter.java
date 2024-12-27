@@ -5,9 +5,13 @@ import com.dist.interview.javacc.infra.model.Candidate;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface CandidateConverter {
-    public CandidateConverter INSTANCE = Mappers.getMapper(CandidateConverter.class);
-    public CandidateEntity toEntity(Candidate c);
-    public Candidate fromEntity(CandidateEntity c);
+    CandidateConverter INSTANCE = Mappers.getMapper(CandidateConverter.class);
+    CandidateEntity toEntity(Candidate c);
+    Candidate fromEntity(CandidateEntity c);
+    List<CandidateEntity> toEntityList(List<Candidate> candidates);
+    List<Candidate> fromEntityList(List<CandidateEntity> candidateEntities);
 }

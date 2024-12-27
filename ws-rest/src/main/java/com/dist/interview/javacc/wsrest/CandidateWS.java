@@ -1,6 +1,7 @@
 package com.dist.interview.javacc.wsrest;
 
 import com.dist.interview.javacc.infra.model.Candidate;
+import com.dist.interview.javacc.infra.model.ParsedQuery;
 import com.dist.interview.javacc.serviceapi.InterviewParserModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,11 @@ import java.util.List;
 public class CandidateWS {
     @Autowired
     private InterviewParserModule parserModule;
-    @PostMapping("/add-candidate")
+    @PostMapping("/find-parsed-candidates")
+    public List<Candidate> findCandidates(@RequestBody ParsedQuery parsedQuery) {
+        return parserModule.findCandidatesByParsedQuery(parsedQuery);
+    }
+        @PostMapping("/add-candidate")
     public Candidate addCandidate(@RequestBody Candidate candidate) {
         return parserModule.addCandidate(candidate);
     }
@@ -28,4 +33,5 @@ public class CandidateWS {
     public String  removeCandidate(@RequestBody Candidate candidate) {
         return parserModule.deleteCandidate(candidate.getId()).get();
     }
+
 }
