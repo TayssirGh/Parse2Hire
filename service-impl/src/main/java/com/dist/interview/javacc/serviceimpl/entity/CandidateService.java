@@ -27,7 +27,8 @@ public class CandidateService {
         return NOptional.of(candidateRepository.findAll()
                 .stream()
                 .map(collection -> new Candidate(collection.getId(), collection.getInterviewId(), collection.getName(),
-                        collection.getEmail(), collection.getAppliedPosition(), collection.getSkills(),collection.getRating(),
+                        collection.getEmail(), collection.getAppliedPosition(), collection.getSkills(),collection.getInterviewScore(),
+                        collection.getResponseTime(), collection.getFeedback(), collection.getRating(),
                         collection.getStatus(), collection.getCreatedAt()))
                 .collect(Collectors.toList())
         );
