@@ -40,4 +40,28 @@ public class CandidateService {
         }
         throw new IllegalArgumentException("Candidate with ID " + id + " does not exist");
     }
+
+    public Candidate updateCandidate(Candidate candidate) {
+        NAssert.requireTrue(candidate != null, "candidate must not be null");
+        NAssert.requireTrue(candidate.getId() != null, "candidate ID must not be null");
+
+        CandidateEntity existingEntity = candidateRepository.findById(candidate.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Candidate with ID " + candidate.getId() + " does not exist"));
+
+        existingEntity.setInterviewId(candidate.getInterviewId());
+        existingEntity.setName(candidate.getName());
+        existingEntity.setEmail(candidate.getEmail());
+        existingEntity.setAppliedPosition(candidate.getAppliedPosition());
+        existingEntity.setSkills(candidate.getSkills());
+        existingEntity.setInterviewScore(candidate.getInterviewScore());
+        existingEntity.setResponseTime(candidate.getResponseTime());
+        existingEntity.setFeedback(candidate.getFeedback());
+        existingEntity.setRating(candidate.getRating());
+        existingEntity.setStatus(candidate.getStatus());
+        existingEntity.setCreatedAt(candidate.getCreatedAt());
+
+        candidateRepository.save(existingEntity);
+
+        return CandidateConverter.INSTANCE.fromEntity(existingEntity);
+    }
 }

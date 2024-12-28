@@ -10,6 +10,7 @@ public interface InterviewParserModule {
     Candidate addCandidate(Candidate candidate);
     NOptional<List<Candidate>> findAllCandidates();
     NOptional<String> deleteCandidate(String candidate);
+    Candidate updateCandidate(Candidate candidate);
 //    ----------------interview-crud----------------------------------
     Interview addInterview(Interview interview);
     NOptional<List<Interview>> findAllInterviews();

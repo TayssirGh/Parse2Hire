@@ -24,6 +24,10 @@ public class CandidateWS {
     public String hello() {
         return "Congratulations you did it \uD83C\uDF89\uD83C\uDF89";
     }
+    @PutMapping("/update-candidate")
+    public Candidate updateCandidate(@RequestBody Candidate candidate) {
+        return parserModule.updateCandidate(candidate);
+    }
     @DeleteMapping("/delete/{id}")
     public String  removeCandidate(@RequestBody Candidate candidate) {
         return parserModule.deleteCandidate(candidate.getId()).get();
