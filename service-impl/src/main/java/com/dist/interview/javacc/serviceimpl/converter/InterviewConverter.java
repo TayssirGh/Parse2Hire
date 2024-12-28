@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface InterviewConverter {
-    public InterviewConverter INSTANCE = Mappers.getMapper(InterviewConverter.class);
-    public InterviewEntity toEntity(Interview interview);
-    public Interview fromEntity(InterviewEntity interviewEntity);
+    InterviewConverter INSTANCE = Mappers.getMapper(InterviewConverter.class);
+    InterviewEntity toEntity(Interview interview);
+    Interview fromEntity(InterviewEntity interviewEntity);
 }

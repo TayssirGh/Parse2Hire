@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface CritireaConverter {
-    public CritireaConverter INSTANCE = Mappers.getMapper(CritireaConverter.class);
-    public CriteriaEntity toEntity(Criteria c);
-    public Criteria fromEntity(CriteriaEntity c);
+    CritireaConverter INSTANCE = Mappers.getMapper(CritireaConverter.class);
+    CriteriaEntity toEntity(Criteria c);
+    Criteria fromEntity(CriteriaEntity c);
 }

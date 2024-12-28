@@ -1,5 +1,6 @@
 package com.dist.interview.javacc.dal.mongodb.entity;
 
+import com.dist.interview.javacc.infra.model.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,6 @@ public class CandidateEntity {
     private Integer responseTime;
     private String feedback;
     private Double rating;
-    private String status;
+    private Status status;
     private Date createdAt;
 }

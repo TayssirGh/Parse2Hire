@@ -18,6 +18,6 @@ public class Candidate {
     private Integer responseTime;
     private String feedback;
     private Double rating;
-    private String status;
+    private Status status;
     private Date createdAt;
 }
