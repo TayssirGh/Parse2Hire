@@ -13,8 +13,8 @@
         <module name="javacc-infra" />
         <module name="service-impl" />
         <module name="interview-core-dal" />
-        <module name="javacc-ws-rest" />
         <module name="interview-core-service-impl" />
+        <module name="javacc-ws-rest" />
         <module name="application" />
         <module name="interview-core-service-api" />
         <module name="ws-rest" />

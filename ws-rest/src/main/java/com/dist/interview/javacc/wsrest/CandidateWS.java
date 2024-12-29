@@ -29,8 +29,8 @@ public class CandidateWS {
         return parserModule.updateCandidate(candidate);
     }
     @DeleteMapping("/delete/{id}")
-    public String  removeCandidate(@RequestBody Candidate candidate) {
-        return parserModule.deleteCandidate(candidate.getId()).get();
+    public String  removeCandidate(@PathVariable String id) {
+        return parserModule.deleteCandidate(id).get();
     }
 
 }
