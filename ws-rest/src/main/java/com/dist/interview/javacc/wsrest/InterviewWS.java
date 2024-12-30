@@ -25,7 +25,7 @@ public class InterviewWS {
         return "Congratulations you did it \uD83C\uDF89\uD83C\uDF89";
     }
     @DeleteMapping("/delete/{id}")
-    public String  removeInterview(@RequestBody Interview interview) {
-        return parserModule.deleteInterview(interview.getId()).get();
+    public String  removeInterview(@PathVariable String id) {
+        return parserModule.deleteInterview(id).get();
     }
 }
