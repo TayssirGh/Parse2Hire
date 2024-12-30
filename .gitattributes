@@ -1,1 +1,3 @@
-app/* linguist-documentation=false
+*.java linguist-language=Java
+*.class linguist-vendored
+*.jar linguist-vendored
