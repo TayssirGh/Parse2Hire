@@ -1,1 +1,1 @@
-*.java linguist-language=Java
+app/* linguist-documentation=false
