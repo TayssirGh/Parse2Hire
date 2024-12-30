@@ -1,3 +1,2 @@
-*.java linguist-language=Java
-*.class linguist-vendored
-*.jar linguist-vendored
+app/* linguist-documentation=false
+app/* linguist-vendored
