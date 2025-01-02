@@ -13,19 +13,20 @@
         <module name="javacc-infra" />
         <module name="service-impl" />
         <module name="interview-core-dal" />
-        <module name="interview-core-service-impl" />
         <module name="javacc-ws-rest" />
+        <module name="interview-core-service-impl" />
         <module name="application" />
         <module name="interview-core-service-api" />
         <module name="ws-rest" />
         <module name="dal-mongodb" />
         <module name="javacc-service-api" />
         <module name="service-api" />
-        <module name="interview-core-infra" />
         <module name="javacc-service-impl" />
+        <module name="interview-core-infra" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="core" target="1.5" />
       <module name="javacc-dal-api" target="17" />
     </bytecodeTargetLevel>
   </component>
