@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="github-p2h" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/TayssirGh/Parse2Hire" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="maven-thevpc" />
       <option name="name" value="maven-thevpc" />
       <option name="url" value="https://thevpc.net/maven/" />
@@ -17,9 +22,19 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="github-core" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/TayssirGh/interview-app" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="maven-enterprise" />
       <option name="name" value="maven-enterprise" />
       <option name="url" value="https://thevpc.net/maven-enterprise/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="github-1" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/TayssirGh/Parse2Hire" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
