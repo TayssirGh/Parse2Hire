@@ -14,11 +14,18 @@
         <option value="$PROJECT_DIR$/javacc-infra/pom.xml" />
         <option value="$PROJECT_DIR$/../interview-app/app/pom.xml" />
         <option value="$PROJECT_DIR$/../interview-app/core/pom.xml" />
+        <option value="$PROJECT_DIR$/../interview-app/app/test/pom.xml" />
+        <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/hh/pom.xml" />
+        <option value="$PROJECT_DIR$/dal-postgre/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/dal-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dal-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../interview-app/app/test/pom.xml" />
       </set>
     </option>
   </component>
