@@ -1,4 +1,4 @@
-package com.dist.interview.javacc.serviceimpl.service;
+package com.dist.interview.javacc.serviceimpl.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

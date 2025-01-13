@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 public class MongoConfig {
     @Bean
     public MongoClient mongoClient() {
-        return MongoClients.create("mongodb://localhost:27017");
+        return MongoClients.create("mongodb+srv://parse2hire:oGn0X1ucTWSMlWyF@cluster0.eemhx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
     }
 
     @Bean
     public MongoDatabase mongoDatabase(MongoClient mongoClient) {
-        return mongoClient.getDatabase("test");
+        return mongoClient.getDatabase("interview-db");
     }
 }

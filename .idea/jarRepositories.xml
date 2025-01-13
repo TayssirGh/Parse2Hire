@@ -2,16 +2,6 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="github-p2h" />
-      <option name="name" value="GitHub Packages" />
-      <option name="url" value="https://maven.pkg.github.com/TayssirGh/Parse2Hire" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="maven-thevpc" />
-      <option name="name" value="maven-thevpc" />
-      <option name="url" value="https://thevpc.net/maven/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="thevpc" />
       <option name="name" value="thevpc" />
       <option name="url" value="https://thevpc.net/maven" />
@@ -27,9 +17,39 @@
       <option name="url" value="https://maven.pkg.github.com/TayssirGh/interview-app" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="github" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/nadiajazi/RankingService-mongoDBSharding" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="github-p2h" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/TayssirGh/Parse2Hire" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven-thevpc" />
+      <option name="name" value="maven-thevpc" />
+      <option name="url" value="https://thevpc.net/maven/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="maven-enterprise" />
       <option name="name" value="maven-enterprise" />
       <option name="url" value="https://thevpc.net/maven-enterprise/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-milestones" />
+      <option name="name" value="Spring Milestones" />
+      <option name="url" value="https://repo.spring.io/milestone" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="github-1" />
@@ -37,9 +57,9 @@
       <option name="url" value="https://maven.pkg.github.com/TayssirGh/Parse2Hire" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Maven Central repository" />
-      <option name="url" value="https://repo1.maven.org/maven2" />
+      <option name="id" value="spring-snapshots" />
+      <option name="name" value="Spring Snapshots" />
+      <option name="url" value="https://repo.spring.io/snapshot" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />

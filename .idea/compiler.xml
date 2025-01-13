@@ -14,7 +14,6 @@
         <module name="service-impl" />
         <module name="interview-core-dal" />
         <module name="javacc-ws-rest" />
-        <module name="interview-core-service-impl" />
         <module name="application" />
         <module name="interview-core-service-api" />
         <module name="ws-rest" />
@@ -24,9 +23,20 @@
         <module name="javacc-service-impl" />
         <module name="interview-core-infra" />
       </profile>
+      <profile name="Annotation profile for springnuts-core-builder" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
+        </processorPath>
+        <module name="interview-core-service-impl" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="core" target="1.5" />
+      <module name="interview-core-builder" target="1.5" />
       <module name="javacc-dal-api" target="17" />
     </bytecodeTargetLevel>
   </component>
