@@ -18,7 +18,7 @@ public class CandidateRepositoryManager {
     private CandidateRepository mongoRepository;
     @Autowired
     private CandidateJPARepository jpaRepository;
-    public void onAddCandidate(Candidate candidate) {
+    public void addCandidate(Candidate candidate) {
         if (candidate.getId() == null || candidate.getId().isEmpty()) {
             String generatedId = UUID.randomUUID().toString();
             candidate.setId(generatedId);
@@ -41,7 +41,7 @@ public class CandidateRepositoryManager {
         entity.setStatus(candidate.getStatus());
         entity.setCreatedAt(candidate.getCreatedAt());
     }
-    public void onUpdateCandidate(Candidate candidate) {
+    public void updateCandidate(Candidate candidate) {
         CandidateJPAEntity postgresEntity = jpaRepository.findById(candidate.getId())
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Candidate with ID " + candidate.getId() + " does not exist in PostgreSQL"
@@ -54,7 +54,7 @@ public class CandidateRepositoryManager {
                 ));        updateEntityFields(mongoEntity, candidate);
         mongoRepository.save(mongoEntity);
     }
-    public void onDeleteCandidate(String candidateId) {
+    public void deleteCandidate(String candidateId) {
         if (jpaRepository.existsById(candidateId)) {
             jpaRepository.deleteById(candidateId);
         } else {

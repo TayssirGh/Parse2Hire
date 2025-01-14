@@ -4,6 +4,7 @@ import com.dist.interview.javacc.dal.mongodb.entity.CandidateMongoEntity;
 import com.dist.interview.javacc.infra.exception.ValidationException;
 import com.dist.interview.javacc.infra.model.*;
 import com.dist.interview.javacc.serviceimpl.converter.CandidateConverter;
+import com.dist.interview.javacc.serviceimpl.entity.CandidateService;
 import com.dist.interview.javacc.serviceimpl.entity.InterviewService;
 import com.dist.interview.javacc.serviceimpl.service.parser.ParseException;
 import com.dist.interview.javacc.serviceimpl.service.parser.QueryParser;
@@ -31,6 +32,8 @@ public class ParserService {
     private MongoTemplate mongoTemplate;
     @Autowired
     private InterviewService interviewService;
+    @Autowired
+    private CandidateService candidateService;
 
     public List<Candidate> sendParsedEmail(ParserInput parserInput) {
         ParsedQuery parsedQuery = parseQuery(parserInput);
@@ -54,8 +57,10 @@ public class ParserService {
 
     public List<Candidate> sendToParsedCandidates(ParsedQuery parsedQuery) {
         List<Candidate> candidates = findCandidatesByParsedQuery(parsedQuery);
-
+        Status newStatus = determineStatusFromTemplate(parsedQuery.getTemplateName());
         for (Candidate candidate : candidates) {
+            candidate.setStatus(newStatus);
+            candidateService.updateCandidate(candidate);
             Map<String, String> placeholders = getStringStringMap(candidate);
             String populatedTemplate = populateTemplate(parsedQuery.getTemplateName(), placeholders);
             String[] emailParts = populatedTemplate.split("\n\n", 2);
@@ -66,6 +71,14 @@ public class ParserService {
             sendEmail(emailRequest);
         }
         return candidates;
+    }
+    private Status determineStatusFromTemplate(String templateName) {
+        if ("acceptanceTemplate.txt".equals(templateName)) {
+            return Status.ACCEPTED;
+        } else if ("rejectionTemplate.txt".equals(templateName)) {
+            return Status.REJECTED;
+        }
+        return Status.PENDING;
     }
 
     private Map<String, String> getStringStringMap(Candidate candidate) {

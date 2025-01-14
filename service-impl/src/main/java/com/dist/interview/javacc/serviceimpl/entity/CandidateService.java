@@ -20,7 +20,7 @@ public class CandidateService {
 
     public Candidate addCandidate(Candidate candidate) {
         NAssert.requireTrue(candidate != null, "candidate must not be null");
-        candidateRepositoryManager.onAddCandidate(candidate);
+        candidateRepositoryManager.addCandidate(candidate);
         return candidate;
     }
     public NOptional<List<Candidate>> findAllCandidates(){
@@ -35,7 +35,7 @@ public class CandidateService {
     }
     public NOptional<String> deleteCandidate(String id){
         if (candidateRepository.existsById(id)) {
-            candidateRepositoryManager.onDeleteCandidate(id);
+            candidateRepositoryManager.deleteCandidate(id);
             return NOptional.of(id);
         }
         throw new IllegalArgumentException("Candidate with ID " + id + " does not exist");
@@ -45,7 +45,7 @@ public class CandidateService {
     public Candidate updateCandidate(Candidate candidate) {
         NAssert.requireTrue(candidate != null, "candidate must not be null");
         NAssert.requireTrue(candidate.getId() != null, "candidate ID must not be null");
-        candidateRepositoryManager.onUpdateCandidate(candidate);
+        candidateRepositoryManager.updateCandidate(candidate);
         return candidate;
     }
 }
