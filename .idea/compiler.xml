@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dal-api" />
         <module name="interview-core-ws-rest" />
         <module name="javacc-infra" />
         <module name="service-impl" />
+        <module name="dal-api-layer" />
         <module name="interview-core-dal" />
+        <module name="dal-postgre" />
         <module name="javacc-ws-rest" />
         <module name="application" />
         <module name="interview-core-service-api" />
@@ -32,23 +33,16 @@
         </processorPath>
         <module name="interview-core-service-impl" />
       </profile>
-      <profile name="Annotation profile for dal-postgre" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="dal-postgre" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="core" target="1.5" />
+      <module name="dal-api" target="17" />
       <module name="dal-jpa" target="17" />
       <module name="demo" target="17" />
       <module name="hh" target="17" />
       <module name="interview-core-builder" target="1.5" />
       <module name="javacc-dal-api" target="17" />
+      <module name="shared-dal-api" target="17" />
       <module name="test" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -56,6 +50,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="application" options="-parameters" />
       <module name="dal-api" options="-parameters" />
+      <module name="dal-api-layer" options="-parameters" />
       <module name="dal-jpa" options="" />
       <module name="dal-mongodb" options="-parameters" />
       <module name="dal-postgre" options="-parameters" />
@@ -74,6 +69,7 @@
       <module name="javacc-ws-rest" options="-parameters" />
       <module name="service-api" options="-parameters" />
       <module name="service-impl" options="-parameters" />
+      <module name="shared-dal-api" options="-parameters" />
       <module name="test" options="-parameters" />
       <module name="ws-rest" options="-parameters" />
     </option>

@@ -1,5 +1,6 @@
 package com.dist.interview.javacc.dal.mongodb.entity;
 
+import com.dist.interview.dalapilayer.CandidateEntity;
 import com.dist.interview.javacc.infra.model.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Document(collection = "candidate")
-public class CandidateEntity {
+public class CandidateMongoEntity implements CandidateEntity {
     @Id
     private String id;
     private String interviewId;

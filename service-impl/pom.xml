@@ -37,6 +37,17 @@
         </dependency>
         <dependency>
             <groupId>com.dist.interview</groupId>
+            <artifactId>dal-postgre</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dist.interview</groupId>
+            <artifactId>dal-api-layer</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dist.interview</groupId>
             <artifactId>javacc-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

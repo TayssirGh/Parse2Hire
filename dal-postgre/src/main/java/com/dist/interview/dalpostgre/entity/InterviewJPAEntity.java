@@ -1,5 +1,6 @@
 package com.dist.interview.dalpostgre.entity;
 
+import com.dist.interview.dalapilayer.InterviewEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "interview")
-public class InterviewJPAEntity {
+public class InterviewJPAEntity implements InterviewEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

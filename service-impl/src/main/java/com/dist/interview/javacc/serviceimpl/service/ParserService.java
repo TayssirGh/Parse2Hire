@@ -1,6 +1,6 @@
 package com.dist.interview.javacc.serviceimpl.service;
 
-import com.dist.interview.javacc.dal.mongodb.entity.CandidateEntity;
+import com.dist.interview.javacc.dal.mongodb.entity.CandidateMongoEntity;
 import com.dist.interview.javacc.infra.exception.ValidationException;
 import com.dist.interview.javacc.infra.model.*;
 import com.dist.interview.javacc.serviceimpl.converter.CandidateConverter;
@@ -131,7 +131,7 @@ public class ParserService {
     public List<Candidate> findCandidatesByParsedQuery(ParsedQuery parsedQuery) {
         Criteria criteria = buildCriteriaFromCondition(parsedQuery.getConditions().get(0));
         Query query = new Query(criteria);
-        List<CandidateEntity> entities = mongoTemplate.find(query, CandidateEntity.class);
+        List<CandidateMongoEntity> entities = mongoTemplate.find(query, CandidateMongoEntity.class);
         return CandidateConverter.INSTANCE.fromEntityList(entities);
     }
 
@@ -207,7 +207,7 @@ public class ParserService {
                 matchScore,
                 projectFields
         );
-        List<CandidateEntity> entities = mongoTemplate.aggregate(aggregation, "candidate", CandidateEntity.class).getMappedResults();
+        List<CandidateMongoEntity> entities = mongoTemplate.aggregate(aggregation, "candidate", CandidateMongoEntity.class).getMappedResults();
         return CandidateConverter.INSTANCE.fromEntityList(entities);
 
     }

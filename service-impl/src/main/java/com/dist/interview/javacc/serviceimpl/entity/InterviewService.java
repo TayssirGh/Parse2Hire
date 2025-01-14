@@ -1,9 +1,10 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.entity.InterviewEntity;
+import com.dist.interview.javacc.dal.mongodb.entity.InterviewMongoEntity;
 import com.dist.interview.javacc.dal.mongodb.repo.InterviewRepository;
 import com.dist.interview.javacc.infra.model.Interview;
 import com.dist.interview.javacc.serviceimpl.converter.InterviewConverter;
+import com.dist.interview.javacc.serviceimpl.interceptor.InterviewInterceptor;
 import net.thevpc.nuts.util.NAssert;
 import net.thevpc.nuts.util.NOptional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ import java.util.stream.Collectors;
 public class InterviewService {
     @Autowired
     private InterviewRepository interviewRepository;
+    @Autowired
+    private InterviewInterceptor interceptor;
 
     public Interview addInterview(Interview interview) {
         NAssert.requireTrue(interview != null, "interview must not be null");
-        InterviewEntity i = InterviewConverter.INSTANCE.toEntity(interview);
-        interviewRepository.insert(i);
-        interviewRepository.save(i);
+        interceptor.onAddInterview(interview);
         return interview;
     }
 
@@ -41,7 +42,7 @@ public class InterviewService {
     public NOptional<Interview> findInterviewById(String id) {
         NAssert.requireTrue(id != null && !id.isEmpty(), "id must not be null or empty");
         return interviewRepository.findById(id)
-                .map(InterviewConverter.INSTANCE::fromEntity)
+                .map(InterviewConverter.INSTANCE::fromMongoEntity)
                 .map(NOptional::of)
                 .orElse(NOptional.ofEmpty());
     }

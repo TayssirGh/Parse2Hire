@@ -1,5 +1,6 @@
 package com.dist.interview.dalpostgre.entity;
 
+import com.dist.interview.dalapilayer.CandidateEntity;
 import com.dist.interview.javacc.infra.model.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,9 +14,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "candidate")
-public class CandidateJPAEntity {
+public class CandidateJPAEntity implements CandidateEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+//    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(name = "interview_id", nullable = false)

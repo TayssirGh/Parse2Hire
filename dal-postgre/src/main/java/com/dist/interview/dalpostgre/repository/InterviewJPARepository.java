@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface InterviewPostgreRepository extends JpaRepository<InterviewJPAEntity, String> {
+public interface InterviewJPARepository extends JpaRepository<InterviewJPAEntity, String> {
 }

@@ -1,6 +1,6 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.entity.CriteriaEntity;
+import com.dist.interview.javacc.dal.mongodb.entity.CriteriaMongoEntity;
 import com.dist.interview.javacc.dal.mongodb.repo.CriteriaRepository;
 import com.dist.interview.javacc.infra.model.Criteria;
 import com.dist.interview.javacc.serviceimpl.converter.CritireaConverter;
@@ -19,7 +19,7 @@ public class CriteriaService {
 
     public Criteria addCriteria(Criteria criteria) {
         NAssert.requireTrue(criteria != null, "criteria must not be null");
-        CriteriaEntity c = CritireaConverter.INSTANCE.toEntity(criteria);
+        CriteriaMongoEntity c = CritireaConverter.INSTANCE.toEntity(criteria);
         criteriaRepository.insert(c);
         criteriaRepository.save(c);
         return criteria;
