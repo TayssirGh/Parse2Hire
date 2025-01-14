@@ -27,5 +27,6 @@ public class CandidateMongoEntity implements CandidateEntity {
     private String feedback;
     private Double rating;
     private Status status;
+    private String location;
     private Date createdAt;
 }

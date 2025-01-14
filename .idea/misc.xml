@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/dal-postgre/pom.xml" />
         <option value="$PROJECT_DIR$/dal-api-layer/pom.xml" />
         <option value="$PROJECT_DIR$/shared-dal-api/pom.xml" />
+        <option value="$PROJECT_DIR$/../interview-app/app-infra/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

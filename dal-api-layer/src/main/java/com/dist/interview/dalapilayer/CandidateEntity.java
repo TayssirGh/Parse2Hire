@@ -16,5 +16,6 @@ public interface CandidateEntity {
     void setFeedback(String feedback);
     void setRating(Double rating);
     void setStatus(Status status);
+    void setLocation(String location);
     void setCreatedAt(Date createdAt);
 }

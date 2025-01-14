@@ -15,6 +15,7 @@
         <module name="dal-postgre" />
         <module name="javacc-ws-rest" />
         <module name="application" />
+        <module name="app-infra" />
         <module name="interview-core-service-api" />
         <module name="ws-rest" />
         <module name="dal-mongodb" />
@@ -47,6 +48,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="app-infra" options="-parameters" />
       <module name="application" options="-parameters" />
       <module name="dal-api" options="-parameters" />
       <module name="dal-api-layer" options="-parameters" />

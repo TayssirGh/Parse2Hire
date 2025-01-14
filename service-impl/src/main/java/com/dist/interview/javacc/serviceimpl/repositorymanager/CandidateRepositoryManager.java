@@ -39,6 +39,7 @@ public class CandidateRepositoryManager {
         entity.setFeedback(candidate.getFeedback());
         entity.setRating(candidate.getRating());
         entity.setStatus(candidate.getStatus());
+        entity.setLocation(candidate.getLocation());
         entity.setCreatedAt(candidate.getCreatedAt());
     }
     public void updateCandidate(Candidate candidate) {

@@ -29,7 +29,7 @@ public class CandidateService {
                 .map(collection -> new Candidate(collection.getId(), collection.getInterviewId(), collection.getName(),
                         collection.getEmail(), collection.getAppliedPosition(), collection.getSkills(),collection.getInterviewScore(),
                         collection.getResponseTime(), collection.getFeedback(), collection.getRating(),
-                        collection.getStatus(), collection.getCreatedAt()))
+                        collection.getStatus(), collection.getLocation() ,collection.getCreatedAt()))
                 .collect(Collectors.toList())
         );
     }
