@@ -1,4 +1,4 @@
-package com.dist.interview.javacc.serviceimpl.interceptor;
+package com.dist.interview.javacc.serviceimpl.repositorymanager;
 
 import com.dist.interview.dalapilayer.InterviewEntity;
 import com.dist.interview.dalpostgre.entity.InterviewJPAEntity;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InterviewInterceptor {
+public class InterviewRepositoryManager {
     @Autowired
     private InterviewRepository mongoRepository;
     @Autowired

@@ -1,10 +1,9 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.entity.InterviewMongoEntity;
 import com.dist.interview.javacc.dal.mongodb.repo.InterviewRepository;
 import com.dist.interview.javacc.infra.model.Interview;
 import com.dist.interview.javacc.serviceimpl.converter.InterviewConverter;
-import com.dist.interview.javacc.serviceimpl.interceptor.InterviewInterceptor;
+import com.dist.interview.javacc.serviceimpl.repositorymanager.InterviewRepositoryManager;
 import net.thevpc.nuts.util.NAssert;
 import net.thevpc.nuts.util.NOptional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class InterviewService {
     @Autowired
     private InterviewRepository interviewRepository;
     @Autowired
-    private InterviewInterceptor interceptor;
+    private InterviewRepositoryManager interceptor;
 
     public Interview addInterview(Interview interview) {
         NAssert.requireTrue(interview != null, "interview must not be null");

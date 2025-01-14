@@ -1,4 +1,4 @@
-package com.dist.interview.javacc.serviceimpl.interceptor;
+package com.dist.interview.javacc.serviceimpl.repositorymanager;
 
 import com.dist.interview.dalapilayer.CandidateEntity;
 import com.dist.interview.dalpostgre.entity.CandidateJPAEntity;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 @Component
-public class CandidateInterceptor {
+public class CandidateRepositoryManager {
     @Autowired
     private CandidateRepository mongoRepository;
     @Autowired

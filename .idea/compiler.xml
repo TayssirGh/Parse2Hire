@@ -40,7 +40,6 @@
       <module name="dal-jpa" target="17" />
       <module name="demo" target="17" />
       <module name="hh" target="17" />
-      <module name="interview-core-builder" target="1.5" />
       <module name="javacc-dal-api" target="17" />
       <module name="shared-dal-api" target="17" />
       <module name="test" target="17" />
