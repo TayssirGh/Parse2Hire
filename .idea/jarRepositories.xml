@@ -22,6 +22,11 @@
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="github-shard" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/nadiajazi/RankingService-mongoDBSharding" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="github" />
       <option name="name" value="GitHub Packages" />
       <option name="url" value="https://maven.pkg.github.com/nadiajazi/RankingService-mongoDBSharding" />
@@ -45,6 +50,11 @@
       <option name="id" value="maven-enterprise" />
       <option name="name" value="maven-enterprise" />
       <option name="url" value="https://thevpc.net/maven-enterprise/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="github-shard" />
+      <option name="name" value="" />
+      <option name="url" value="" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="spring-milestones" />

@@ -1,6 +1,6 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.repo.CandidateRepository;
+import com.dist.interview.dal.repository.CandidateRepository;
 import com.dist.interview.javacc.infra.model.Candidate;
 import com.dist.interview.javacc.serviceimpl.repositorymanager.CandidateRepositoryManager;
 import net.thevpc.nuts.util.NAssert;

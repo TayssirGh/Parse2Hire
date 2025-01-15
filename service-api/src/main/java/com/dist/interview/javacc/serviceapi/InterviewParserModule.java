@@ -16,9 +16,9 @@ public interface InterviewParserModule {
     NOptional<List<Interview>> findAllInterviews();
     NOptional<String> deleteInterview(String interview);
 //    ----------------criteria-crud----------------------------------
-    Criteria addCriteria(Criteria criteria);
-    NOptional<List<Criteria>> findAllCriterias();
-    NOptional<String> deleteCriteria(String interview);
+//    Criteria addCriteria(Criteria criteria);
+//    NOptional<List<Criteria>> findAllCriterias();
+//    NOptional<String> deleteCriteria(String interview);
 //    ----------------parser-logic---------------------------------
     ParsedQuery parseQuery(ParserInput query);
     List<Candidate> findCandidatesByParsedQuery(ParsedQuery parsedQuery);

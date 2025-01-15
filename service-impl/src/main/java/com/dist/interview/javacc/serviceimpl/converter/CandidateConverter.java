@@ -1,7 +1,7 @@
 package com.dist.interview.javacc.serviceimpl.converter;
 
+import com.dist.interview.dal.entity.CandidateMongoEntity;
 import com.dist.interview.dalpostgre.entity.CandidateJPAEntity;
-import com.dist.interview.javacc.dal.mongodb.entity.CandidateMongoEntity;
 import com.dist.interview.javacc.infra.model.Candidate;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

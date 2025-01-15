@@ -1,6 +1,6 @@
 package com.dist.interview.javacc.serviceimpl.entity;
 
-import com.dist.interview.javacc.dal.mongodb.repo.InterviewRepository;
+import com.dist.interview.dal.repository.InterviewRepository;
 import com.dist.interview.javacc.infra.model.Interview;
 import com.dist.interview.javacc.serviceimpl.converter.InterviewConverter;
 import com.dist.interview.javacc.serviceimpl.repositorymanager.InterviewRepositoryManager;

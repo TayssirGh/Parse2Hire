@@ -1,10 +1,10 @@
 package com.dist.interview.javacc.serviceimpl.repositorymanager;
 
+import com.dist.interview.dal.entity.InterviewMongoEntity;
+import com.dist.interview.dal.repository.InterviewRepository;
 import com.dist.interview.dalapilayer.InterviewEntity;
 import com.dist.interview.dalpostgre.entity.InterviewJPAEntity;
 import com.dist.interview.dalpostgre.repository.InterviewJPARepository;
-import com.dist.interview.javacc.dal.mongodb.entity.InterviewMongoEntity;
-import com.dist.interview.javacc.dal.mongodb.repo.InterviewRepository;
 import com.dist.interview.javacc.infra.model.Interview;
 import com.dist.interview.javacc.serviceimpl.converter.InterviewConverter;
 import org.springframework.beans.factory.annotation.Autowired;
