@@ -8,7 +8,7 @@
         <version>3.3.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.dist.interview</groupId>
+    <groupId>com.distr.interview</groupId>
     <artifactId>javacc-service-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>javacc-service-api</name>
@@ -18,11 +18,11 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.dist.interview</groupId>
+            <groupId>com.distr.interview</groupId>
             <artifactId>javacc-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency><groupId>com.dist.interview</groupId><artifactId>app-infra</artifactId><version>0.0.1</version></dependency>
+        <dependency><groupId>com.distr.interview</groupId><artifactId>app-infra</artifactId><version>0.0.1</version></dependency>
 
         <!--        <dependency>-->
 <!--            <groupId>net.thevpc.nuts</groupId>-->

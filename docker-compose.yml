@@ -1,0 +1,77 @@
+version: '3.9'
+services:
+  configsvr:
+    image: mongo:6.0
+    container_name: configsvr
+    command: >
+      mongod --configsvr --replSet configReplSet --port 27020 --bind_ip_all
+    volumes:
+      - configsvr_data:/data/configdb
+    networks:
+      - mongo_network
+
+  shard1:
+    image: mongo:6.0
+    container_name: shard1
+    command: >
+      mongod --shardsvr --replSet shard1ReplSet --port 27018 --bind_ip_all
+    volumes:
+      - shard1_data:/data/db
+    networks:
+      - mongo_network
+
+  shard2:
+    image: mongo:6.0
+    container_name: shard2
+    command: >
+      mongod --shardsvr --replSet shard2ReplSet --port 27019 --bind_ip_all
+    volumes:
+      - shard2_data:/data/db
+    networks:
+      - mongo_network
+  shard3:
+    image: mongo:6.0
+    container_name: shard3
+    command: >
+      mongod --shardsvr --replSet shard3ReplSet --port 27021 --bind_ip_all
+    volumes:
+      - shard3_data:/data/db
+    networks:
+      - mongo_network
+  shard4:
+    image: mongo:6.0
+    container_name: shard4
+    command: >
+      mongod --shardsvr --replSet shard4ReplSet --port 27022 --bind_ip_all
+    volumes:
+      - shard4_data:/data/db
+    networks:
+      - mongo_network
+
+  mongos:
+    image: mongo:6.0
+    container_name: mongos
+    depends_on:
+      - configsvr
+      - shard1
+      - shard2
+      - shard3
+      - shard4
+    command: >
+      mongos --configdb configReplSet/configsvr:27020 --bind_ip_all --port 27023
+    ports:
+      - "27023:27023"
+    networks:
+      - mongo_network
+
+
+networks:
+  mongo_network:
+    driver: bridge
+
+volumes:
+  configsvr_data:
+  shard1_data:
+  shard2_data:
+  shard3_data:
+  shard4_data:

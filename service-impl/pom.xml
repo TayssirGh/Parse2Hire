@@ -8,7 +8,7 @@
         <version>3.3.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.dist.interview</groupId>
+    <groupId>com.distr.interview</groupId>
     <artifactId>javacc-service-impl</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>javacc-service-impl</name>
@@ -18,28 +18,28 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.dist.interview</groupId>
+            <groupId>com.distr.interview</groupId>
             <artifactId>javacc-service-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.dist.interview</groupId>-->
-<!--            <artifactId>dal-mongodb</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>com.dist.interview</groupId>
+            <groupId>com.distr.interview</groupId>
+            <artifactId>dal-mongodb</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.distr.interview</groupId>
             <artifactId>dal-postgre</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.dist.interview</groupId>
+            <groupId>com.distr.interview</groupId>
             <artifactId>dal-api-layer</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.dist.interview</groupId>
+            <groupId>com.distr.interview</groupId>
             <artifactId>javacc-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -67,12 +67,32 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.dist.interview</groupId>
-            <artifactId>dal</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
         </dependency>
 
-        <dependency><groupId>com.dist.interview</groupId><artifactId>app-infra</artifactId><version>0.0.1</version></dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.5.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>5.5.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency><groupId>com.distr.interview</groupId><artifactId>app-infra</artifactId><version>0.0.1</version></dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
 
         <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->

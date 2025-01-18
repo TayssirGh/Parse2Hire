@@ -8,7 +8,7 @@
         <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.dist.interview</groupId>
+    <groupId>com.distr.interview</groupId>
     <artifactId>dal-api-layer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dal-api-layer</name>
@@ -30,7 +30,7 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-        <dependency><groupId>com.dist.interview</groupId><artifactId>javacc-infra</artifactId><version>0.0.1-SNAPSHOT</version></dependency>
+        <dependency><groupId>com.distr.interview</groupId><artifactId>javacc-infra</artifactId><version>0.0.1-SNAPSHOT</version></dependency>
 
     </dependencies>
 

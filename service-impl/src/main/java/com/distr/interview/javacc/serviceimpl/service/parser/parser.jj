@@ -1,0 +1,186 @@
+options {
+    STATIC = false;
+}
+PARSER_BEGIN(QueryParser)
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.distr.interview.javacc.infra.model.Condition;
+import com.distr.interview.javacc.infra.model.LogicalOperator;
+import com.distr.interview.javacc.infra.model.Operator;
+import com.distr.interview.javacc.infra.model.ParsedQuery;
+
+public class QueryParser {
+    public static void main(String[] args) throws ParseException {
+        System.out.println("parse to hire :");
+        QueryParser parser = new QueryParser(System.in);
+        ParsedQuery query = parser.statement();
+        System.out.println("Parsed Query: " + query);
+    }
+}}
+}
+
+PARSER_END(QueryParser)
+
+SKIP :
+{
+    " " | "\t" | "\n" | "\r"
+}
+
+TOKEN :
+{
+    < LBRACE: "{" >
+  | < RBRACE: "}" >
+  | < LPAREN: "(" >
+  | < RPAREN: ")" >
+  | < USE: "USE" >
+  | < TEMPLATE: "TEMPLATE" >
+  | < FOR: "FOR" >
+  | < ALL: "ALL" >
+  | < CANDIDATES: "CANDIDATES" >
+  | < WHERE: "WHERE" >
+  | < AND: "AND" >
+  | < OR: "OR" >
+  | < MATCH: "MATCH" >
+  | < STRING: "\"" (~["\""])* "\"" >
+  | < IDENTIFIER: (["a"-"z", "A"-"Z", "_"]) (["a"-"z", "A"-"Z", "0"-"9", "_", "."])* >
+  | < NUMBER: (["0"-"9"])+ >
+  | < EQ: "=" >
+  | < LT: "<" >
+  | < GT: ">" >
+  | < LTE: "<=" >
+  | < GTE: ">=" >
+}
+
+ParsedQuery statement() :
+{
+    ParsedQuery parsedQuery = new ParsedQuery();
+    String templateName;
+    List<Condition> conditions = new ArrayList<>();
+}
+{
+    <LBRACE>
+    templateName = useClause()
+    forClause()
+    conditions = whereClause()
+    <RBRACE>
+    {
+        parsedQuery.setTemplateName(templateName);
+        parsedQuery.setConditions(conditions);
+        return parsedQuery;
+    }
+}
+
+String useClause() :
+{
+    Token t;
+}
+{
+    <USE> <TEMPLATE> t=<STRING>
+    {
+        return t.image.substring(1, t.image.length() - 1); // Remove quotes
+    }
+}
+
+void forClause() :
+{}
+{
+    <FOR> <ALL> <CANDIDATES>
+}
+
+List<Condition> whereClause() :
+{
+    Condition condition;
+    List<Condition> conditions = new ArrayList<>();
+}
+{
+    <WHERE> condition = condition()
+    {
+        conditions.add(condition);
+        return conditions;
+    }
+}
+
+Condition condition() :
+{
+    Condition left = null;
+    LogicalOperator logicalOperator = null;
+    Condition right = null;
+}
+{
+    left = simpleCondition()
+    (
+        logicalOperator = logicalOperator()
+        right = condition()
+        {
+            return new Condition(left, logicalOperator, right, false);
+        }
+    )?
+    {
+        return left;
+    }
+}
+
+Condition simpleCondition() :
+{
+    String leftOperand = null, rightOperand = null;
+    Operator operator = null;
+    Token tLeftOperand, tRightOperand;
+    Condition nestedCondition = null;
+}
+{
+    (
+        <LPAREN>
+        nestedCondition = condition()
+        <RPAREN>
+        {
+            return nestedCondition;
+        }
+    )
+    |
+    tLeftOperand=<IDENTIFIER>
+    operator=operator()
+    tRightOperand=<NUMBER>
+    {
+    leftOperand = tLeftOperand.image;
+    rightOperand = tRightOperand.image;
+    return new Condition(leftOperand, operator, rightOperand);
+
+    throw new ParseException("Invalid simple condition format");
+}
+}
+
+
+
+Operator operator() :
+{
+    Operator op = null;
+}
+{
+    (
+        <EQ> { op = Operator.EQ; }
+      | <GTE> { op = Operator.GTE; }
+      | <LTE> { op = Operator.LTE; }
+      | <LT> { op = Operator.LT; }
+      | <GT> { op = Operator.GT; }
+      | <MATCH> { op = Operator.MATCH; }
+    )
+    {
+        return op;
+    }
+}
+
+LogicalOperator logicalOperator() :
+{
+    LogicalOperator op = null;
+}
+{
+    (
+        <AND> { op = LogicalOperator.AND; }
+      | <OR> { op = LogicalOperator.OR; }
+    )
+    {
+        return op;
+    }
+}

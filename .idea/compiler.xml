@@ -24,7 +24,7 @@
         <module name="javacc-service-impl" />
         <module name="interview-core-infra" />
       </profile>
-      <profile name="Annotation profile for springnuts-core-builder" enabled="true">
+      <profile name="Annotation profile for interview-core-builder" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />

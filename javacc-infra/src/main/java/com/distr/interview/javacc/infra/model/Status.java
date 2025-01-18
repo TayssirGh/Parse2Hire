@@ -1,0 +1,7 @@
+package com.distr.interview.javacc.infra.model;
+
+public enum Status {
+    ACCEPTED,
+    REJECTED,
+    PENDING,
+}

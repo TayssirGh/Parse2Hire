@@ -37,6 +37,11 @@
       <option name="url" value="https://maven.pkg.github.com/TayssirGh/Parse2Hire" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="jade" />
+      <option name="name" value="GitHub Packages" />
+      <option name="url" value="https://maven.pkg.github.com/AdamGaida/code-evaluation" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="maven-thevpc" />
       <option name="name" value="maven-thevpc" />
       <option name="url" value="https://thevpc.net/maven/" />
@@ -45,6 +50,11 @@
       <option name="id" value="central" />
       <option name="name" value="central" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jade" />
+      <option name="name" value="some name" />
+      <option name="url" value="https://maven.pkg.github.com/AdamGaida/code-evaluation" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven-enterprise" />
