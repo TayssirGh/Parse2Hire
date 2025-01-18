@@ -1,2 +1,5 @@
-dist/* linguist-vendored=false
+!dist/**
+
+dist/** linguist-vendored=false
+
 *.java linguist-language=Java
