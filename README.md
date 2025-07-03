@@ -40,3 +40,7 @@ The entry point for the platform is available [here](https://github.com/your-ent
    ```bash
    git clone https://github.com/your-repo-url.git
    cd candidate-response-module
+
+
+
+
