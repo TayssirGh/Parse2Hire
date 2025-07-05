@@ -28,6 +28,7 @@ The project is built using:
 This module is a part of the broader **Interview Platform** ecosystem. It is designed to handle candidate responses with specific syntax, enabling automated and structured communication.
 
 The entry point for the platform is available [here](https://github.com/your-entrypoint-project](https://github.com/TayssirGh/interview-app)).
+The frontend application to this platform is available [here](https://github.com/TayssirGh/interview-app-frontend)
 
 ## Getting Started
 ### Prerequisites
