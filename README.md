@@ -36,11 +36,6 @@ The frontend application to this platform is available [here](https://github.com
 - **Maven** 3.8+ installed
 - **MongoDB** and **PostgreSQL** instances running
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/your-repo-url.git](https://github.com/TayssirGh/Parse2Hire)
-   cd candidate-response-module
 
 
 
